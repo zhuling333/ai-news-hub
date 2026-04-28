@@ -1,0 +1,47 @@
+{
+  "skills": [
+    {
+      "id": 1, "icon": "🎯",
+      "title": "提示词工程（Prompt Engineering）",
+      "level": 3, "maxLevel": 5,
+      "desc": "掌握结构化提示词、Chain-of-Thought、Few-Shot 等核心技巧，让 AI 输出质量提升 300%。",
+      "count": 32, "difficulty": "中级"
+    },
+    {
+      "id": 2, "icon": "🔧",
+      "title": "AI Agent 开发",
+      "level": 4, "maxLevel": 5,
+      "desc": "从单 Agent 到多 Agent 协作，掌握 MCP 协议、工具调用规划、长程记忆等核心技能。",
+      "count": 28, "difficulty": "高级"
+    },
+    {
+      "id": 3, "icon": "📊",
+      "title": "AI + 数据分析",
+      "level": 2, "maxLevel": 5,
+      "desc": "用 AI 加速数据清洗、可视化、报告生成，打造智能数据分析工作流。",
+      "count": 19, "difficulty": "初级"
+    },
+    {
+      "id": 4, "icon": "✏️",
+      "title": "AI 写作与内容创作",
+      "level": 3, "maxLevel": 5,
+      "desc": "从文案创作到长文写作，构建 AI 辅助创作工作流，提升 5 倍内容产出效率。",
+      "count": 24, "difficulty": "中级"
+    },
+    {
+      "id": 5, "icon": "🎨",
+      "title": "AI 图像与设计",
+      "level": 2, "maxLevel": 5,
+      "desc": "掌握 Midjourney、Stable Diffusion、DALL-E 等工具，以及 AI 设计工作流整合。",
+      "count": 21, "difficulty": "初级"
+    },
+    {
+      "id": 6, "icon": "📝",
+      "title": "AI 编程与代码开发",
+      "level": 4, "maxLevel": 5,
+      "desc": "GitHub Copilot、Cursor、AI 代码审查、自动化测试——AI 原生开发全流程指南。",
+      "count": 32, "difficulty": "中级"
+    }
+  ],
+  "updatedAt": "2026-04-28T13:00:00+08:00"
+}

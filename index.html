@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="AI 前线资讯 — 精选 AI 资讯、AI 技能教程与行业动态，覆盖大模型、AI 工具、前沿研究与市场趋势。"><meta name="keywords" content="AI资讯,人工智能,大模型,AI技能,行业动态,AI新闻,AI工具"><meta name="robots" content="index,follow"><link rel="canonical" href="https://ai-news-hub.vercel.app/"><meta name="theme-color" content="#0a0a0f"><meta property="og:title" content="AI 前线资讯 — 精选 AI 资讯 | AI技能 | 行业动态"><meta property="og:description" content="第一时间获取 AI 领域最新资讯、技能教程与行业趋势。"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><title>AI 前线资讯 — 精选 AI 资讯 | AI技能 | 行业动态</title><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AI 前线资讯","url":"https://ai-news-hub.vercel.app/","description":"AI 领域精选资讯、技能教程与行业趋势"}</script><link href="https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@300;400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet"><style>
+:root{--bg-primary:#050510;--bg-secondary:#0a0a1a;--bg-card:#0d0d24;--bg-card-hover:#111133;--border:#1a1a3e;--border-bright:#2a2a5e;--cyan:#00e5ff;--cyan-dim:#00a8c7;--cyan-glow:rgba(0,229,255,.15);--purple:#b347ea;--purple-dim:#8a35c7;--purple-glow:rgba(179,71,234,.15);--amber:#ffab40;--amber-dim:#cc8a33;--red-hot:#ff3d71;--text-primary:#e8e8f0;--text-secondary:#8888aa;--text-dim:#555577;--font-display:'Michroma',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'Azeret Mono',monospace;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--transition:all .3s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+html{scroll-behavior:smooth;scrollbar-color:var(--cyan-dim) var(--bg-secondary)}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg-secondary)}::-webkit-scrollbar-thumb{background:var(--cyan-dim);border-radius:3px}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);line-height:1.6;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(5,5,16,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0 24px;max-width:1280px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-icon{width:32px;height:32px}
+.logo-icon svg{width:100%;height:100%}
+.logo-text{font-family:var(--font-display);font-size:15px;letter-spacing:2px;color:var(--cyan);text-transform:uppercase}
+.logo-text span{color:var(--text-primary)}
+.nav-links{display:flex;list-style:none;gap:4px;align-items:center}
+.nav-links a{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--text-secondary);padding:8px 14px;border-radius:var(--radius-sm);border:1px solid transparent;transition:var(--transition);cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:var(--cyan);border-color:var(--cyan-dim);background:var(--cyan-glow)}
+.live-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--red-hot);background:rgba(255,61,113,.1);border:1px solid rgba(255,61,113,.3);border-radius:20px;padding:4px 10px;flex-shrink:0;margin-left:8px}
+.live-dot{width:6px;height:6px;background:var(--red-hot);border-radius:50%;animation:pulse-live 1.5s ease-in-out infinite}
+@keyframes pulse-live{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+/* PAGE SPA */
+.page{display:none}.page.active{display:block}
+/* HERO */
+.hero{padding:80px 0 60px;position:relative}
+.hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(ellipse,rgba(0,229,255,.08) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--cyan)}
+.hero h1{font-family:var(--font-display);font-size:clamp(36px,5vw,64px);line-height:1.1;letter-spacing:-1px;margin-bottom:24px;max-width:700px}
+.gradient-text{background:linear-gradient(135deg,var(--cyan) 0%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:18px;color:var(--text-secondary);max-width:560px;margin-bottom:40px;line-height:1.7}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap}
+.stat-number{font-family:var(--font-display);font-size:32px;color:var(--cyan);line-height:1}
+.stat-label{font-family:var(--font-mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-top:4px}
+/* SECTIONS */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.section-title{font-family:var(--font-display);font-size:20px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+.section-title .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot.cyan{background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.dot.purple{background:var(--purple);box-shadow:0 0 10px var(--purple)}
+.dot.amber{background:var(--amber);box-shadow:0 0 10px var(--amber)}
+.dot.red{background:var(--red-hot);box-shadow:0 0 10px var(--red-hot)}
+.section-meta{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;color:var(--text-dim);text-transform:uppercase}
+/* FEATURED GRID */
+.featured-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;margin-bottom:80px}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);cursor:pointer;position:relative}
+.card:hover{border-color:var(--border-bright);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.card-featured{grid-column:span 8;grid-row:span 2}.card-regular{grid-column:span 4}.card-sm{grid-column:span 6}
+.card-image{position:relative;overflow:hidden;height:180px;background:linear-gradient(135deg,var(--bg-secondary),#1a1a3e)}
+.card-featured .card-image{height:340px}
+.card-image .card-tag{position:absolute;top:16px;left:16px;font-family:var(--font-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:20px;border:1px solid;backdrop-filter:blur(10px);background:rgba(0,0,0,.5)}
+.card-tag.cyan{color:var(--cyan);border-color:var(--cyan)}.card-tag.purple{color:var(--purple);border-color:var(--purple)}
+.card-tag.amber{color:var(--amber);border-color:var(--amber)}.card-tag.red{color:var(--red-hot);border-color:var(--red-hot)}
+.card-tag-hot{position:absolute;top:16px;right:16px;font-family:var(--font-mono);font-size:9px;font-weight:600;color:#fff;background:var(--red-hot);padding:4px 10px;border-radius:20px}
+.card-body{padding:20px}.card-meta{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);display:flex;gap:12px;align-items:center;margin-bottom:10px}
+.card-meta .sep{color:var(--border-bright)}
+.card-title{font-size:18px;font-weight:700;line-height:1.4;margin-bottom:10px;transition:color .2s}
+.card-featured .card-title{font-size:26px}.card:hover .card-title{color:var(--cyan)}
+.card-excerpt{font-size:14px;color:var(--text-secondary);line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card-featured .card-excerpt{-webkit-line-clamp:4}
+.card-footer{padding:14px 20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-author,.card-read-time{font-family:var(--font-mono);font-size:10px;color:var(--text-dim)}
+/* LATEST */
+.latest-section{margin-bottom:80px}
+.latest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.news-item{display:flex;gap:16px;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);transition:var(--transition)}
+.news-item:hover{border-color:var(--border-bright);background:var(--bg-card-hover)}
+.news-item-num{font-family:var(--font-display);font-size:24px;color:var(--border-bright);line-height:1;flex-shrink:0;width:40px}
+.news-item-content{flex:1;min-width:0}
+.news-item-tag{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:6px}
+.news-item-title{font-size:14px;font-weight:600;margin-bottom:6px;line-height:1.4;transition:color .2s}
+.news-item:hover .news-item-title{color:var(--cyan)}
+.news-item-date{font-family:var(--font-mono);font-size:10px;color:var(--text-dim)}
+/* NEWS TIMELINE */
+.subsection{margin-bottom:80px}
+.news-timeline{position:relative;padding-left:32px}
+.news-timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--purple),transparent)}
+.timeline-item{position:relative;padding:24px 0;border-bottom:1px solid var(--border)}
+.timeline-item::before{content:'';position:absolute;left:-28px;top:32px;width:8px;height:8px;border-radius:50%;background:var(--purple);border:2px solid var(--bg-primary);box-shadow:0 0 10px var(--purple)}
+.timeline-date{font-family:var(--font-mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
+.timeline-category{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:20px;border:1px solid;display:inline-block;margin-bottom:12px}
+.timeline-title{font-size:22px;font-weight:700;margin-bottom:12px;line-height:1.4;transition:color .2s}
+.timeline-title a:hover{color:var(--purple)}
+.timeline-excerpt{font-size:15px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;max-width:800px}
+.timeline-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:var(--font-mono);font-size:10px;padding:4px 12px;border-radius:20px;border:1px solid var(--border);color:var(--text-dim);background:var(--bg-secondary);transition:var(--transition)}
+.tag:hover{border-color:var(--purple);color:var(--purple)}
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:var(--transition);position:relative;overflow:hidden}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amber),transparent);opacity:0;transition:opacity .3s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{border-color:var(--amber);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.skill-icon{width:48px;height:48px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px;background:rgba(255,171,64,.1);border:1px solid rgba(255,171,64,.2)}
+.skill-level{display:flex;gap:4px;margin-bottom:12px}
+.skill-level-bar{height:3px;width:40px;background:var(--border);border-radius:2px}
+.skill-level-bar.filled{background:var(--amber)}
+.skill-title{font-size:18px;font-weight:700;margin-bottom:10px}.skill-card:hover .skill-title{color:var(--amber)}
+.skill-desc{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+.skill-meta{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);display:flex;gap:16px}
+/* TRENDS */
+.trends-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:40px}
+.trend-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:var(--transition)}
+.trend-card:hover{border-color:var(--red-hot);transform:translateY(-3px)}
+.trend-eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--red-hot);margin-bottom:12px}
+.trend-title{font-size:20px;font-weight:700;margin-bottom:12px;line-height:1.4}.trend-card:hover .trend-title{color:var(--red-hot)}
+.trend-excerpt{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+.market-bar{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--border)}
+.market-item{display:flex;flex-direction:column;gap:4px;min-width:70px}
+.market-label{font-family:var(--font-mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim)}
+.market-value{font-family:var(--font-display);font-size:20px;color:var(--text-primary)}
+.market-change{font-family:var(--font-mono);font-size:12px;font-weight:600;margin-top:2px}
+.market-change.up{color:#4cff4c}.market-change.down{color:var(--red-hot)}
+.chart-section{margin-bottom:60px}
+.chart-placeholder{display:flex;align-items:flex-end;gap:12px;height:220px;padding:16px 0;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 24px 16px}
+.chart-bar{flex:1;background:linear-gradient(to top,var(--red-hot),var(--amber));border-radius:4px 4px 0 0;position:relative;min-height:8px;transition:var(--transition)}
+.chart-bar:hover{filter:brightness(1.3)}.chart-bar::after{content:attr(data-label);position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-family:var(--font-mono);font-size:9px;color:var(--text-dim)}
+/* FOOTER */
+.site-footer{padding:40px 0;border-top:1px solid var(--border);text-align:center;margin-top:60px}
+.footer-text{font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:1px}
+/* RESPONSIVE */
+@media(max-width:1024px){.card-featured{grid-column:span 12}.card-regular{grid-column:span 6}.card-sm{grid-column:span 12}.skills-grid{grid-template-columns:repeat(2,1fr)}.trends-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.card-regular,.card-sm{grid-column:span 12}.latest-grid{grid-template-columns:1fr}.header-inner{flex-wrap:wrap;height:auto;padding:12px 16px}.nav-links a{font-size:10px;padding:6px 10px}.hero{padding:40px 0}.hero-stats{gap:24px}.stat-number{font-size:24px}.skills-grid{grid-template-columns:1fr}.trends-grid{grid-template-columns:1fr}.market-bar{flex-direction:column;align-items:flex-start}}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeIn .4s ease both}
+/* SKELETON */
+.skeleton{background:linear-gradient(90deg,var(--bg-secondary) 25%,var(--bg-card) 50%,var(--bg-secondary) 75%);background-size:200% 100%;animation:shimmer 1.5s ease infinite;border-radius:var(--radius-md)}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skeleton-card{height:400px}.skeleton-sm{height:220px}.skeleton-row{height:80px;margin-bottom:16px}
+</style></head><body>
+<header class="site-header"><div class="header-inner"><a class="logo" href="/" aria-label="AI 前线资讯">
+<div class="logo-icon"><svg viewBox="0 0 32 32" fill="none"><rect x="1" y="1" width="30" height="30" rx="6" stroke="#00e5ff" stroke-width="1.5"/><path d="M8 24V12l4 8 4-8v12" stroke="#b347ea" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="16" r="7" stroke="#00e5ff" stroke-width="1.5"/><path d="M24 13v3h3" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+<div class="logo-text">AI<span>前线资讯</span></div></a>
+<nav><ul class="nav-links"><li><a data-page="home" class="active">首页</a></li><li><a data-page="news">AI资讯</a></li><li><a data-page="skills">AI技能</a></li><li><a data-page="trends">行业动态</a></li></ul></nav>
+<div class="live-badge"><span class="live-dot"></span>实时更新</div></div></header>
+<main>
+<div id="page-home" class="page active"><section class="hero"><div class="container"><div class="hero-eyebrow">FRONTLINE AI / 前沿资讯</div><h1>AI 领域<span class="gradient-text">精选内容</span>汇总</h1><p class="hero-sub">大模型、AI 工具、前沿研究与市场趋势，每日精选最具价值的 AI 资讯与技能教程。</p><div class="hero-stats"></div></div></section><section class="container"><div class="section-header"><h2 class="section-title"><span class="dot cyan"></span>精选推荐</h2><span class="section-meta">🔥 EDITOR'S PICKS</span></div><div class="featured-grid skeleton-card">Loading...</div></section><section class="latest-section container"><div class="section-header"><h2 class="section-title"><span class="dot cyan"></span>最新快讯</h2><span class="section-meta">⚡ LIVE FEED</span></div><div class="latest-grid"></div></section></div>
+<div id="page-news" class="page"><div class="container"><section class="hero" style="padding:60px 0 30px"><div class="hero-eyebrow">AI NEWS / AI 资讯</div><h1 style="max-width:800px">AI<span class="gradient-text">新闻追踪</span></h1><p class="hero-sub">大模型发布、开源动态、政策法规，一站式了解 AI 行业最新动态。</p></section><section class="subsection"><div class="section-header"><h2 class="section-title"><span class="dot purple"></span>资讯时间线</h2><span class="section-meta">📰 NEWS TIMELINE</span></div><div class="news-timeline"></div></section></div></div>
+<div id="page-skills" class="page"><div class="container"><section class="hero" style="padding:60px 0 30px"><div class="hero-eyebrow">AI SKILLS / AI 技能</div><h1 style="max-width:800px"><span class="gradient-text">AI 技能</span>学习库</h1><p class="hero-sub">从 Prompt Engineering 到 AI Agent 开发，系统化掌握 AI 核心技能。</p></section><section class="subsection"><div class="section-header"><h2 class="section-title"><span class="dot amber"></span>技能矩阵</h2><span class="section-meta">⚡ SKILL MATRIX</span></div><div class="skills-grid"></div></section></div></div>
+<div id="page-trends" class="page"><div class="container"><section class="hero" style="padding:60px 0 30px"><div class="hero-eyebrow">TRENDS / 行业动态</div><h1 style="max-width:800px"><span class="gradient-text">行业趋势</span>洞察</h1><p class="hero-sub">市场规模、投融资、算力芯片、企业采用——数据驱动 AI 行业深度分析。</p></section><section class="subsection"><div class="section-header"><h2 class="section-title"><span class="dot red"></span>行业洞察</h2><span class="section-meta">📈 MARKET INSIGHTS</span></div><div class="trends-grid"></div></section><section class="chart-section"><div class="section-header"><h2 class="section-title"><span class="dot red"></span>热度指数</h2><span class="section-meta">📊 HEAT INDEX</span></div><div class="chart-placeholder"></div></section><section class="subsection"><div class="section-header"><h2 class="section-title"><span class="dot red"></span>研究报告</h2><span class="section-meta">📑 REPORTS</span></div><div class="trends-grid"></div></section></div></div>
+</main><footer class="site-footer"><div class="container"><p class="footer-text">&copy; 2026 AI 前线资讯 · 每日自动更新 · Data-driven by JSON</p></div></footer>
+<script src="js/app.js"></script></body></html>

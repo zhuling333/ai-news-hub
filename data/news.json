@@ -1,0 +1,49 @@
+{
+  "news": [
+    {
+      "id": 1, "date": "2026-04-28", "displayDate": "2026年4月28日", "category": "大模型", "categoryColor": "cyan",
+      "title": "OpenAI 发布 GPT-5：多模态能力全面跃升，200 万 token 上下文",
+      "excerpt": "OpenAI 正式发布 GPT-5，新模型在视觉理解、代码生成、数学推理方面实现质的飞跃。上下文窗口扩展至 200 万 tokens，首次支持实时多模态交互，API 定价相比 GPT-4 下降 60%。",
+      "tags": ["GPT-5", "OpenAI", "多模态", "大模型"], "url": "#"
+    },
+    {
+      "id": 2, "date": "2026-04-27", "displayDate": "2026年4月27日", "category": "开源", "categoryColor": "purple",
+      "title": "Anthropic Claude 4 系列发布：1000 万 token 上下文测试创世界纪录",
+      "excerpt": "Anthropic 发布 Claude 4 系列，其中 Claude 4 Opus 在 1000 万 token 上下文测试中准确率达 98.7%，创下行业新纪录。视觉理解能力提升 300%，支持视频帧分析。",
+      "tags": ["Claude 4", "Anthropic", "上下文窗口", "视觉理解"], "url": "#"
+    },
+    {
+      "id": 3, "date": "2026-04-26", "displayDate": "2026年4月26日", "category": "开源模型", "categoryColor": "cyan",
+      "title": "DeepSeek-R2 发布：国产开源模型多 Benchmark 逼近 GPT-4",
+      "excerpt": "幻方深度求索团队发布 DeepSeek-R2，在 MMLU、HumanEval、GSM8K 等基准测试中逼近 GPT-4 水准，训练成本仅为同类模型的 1/5，全面开源可商用。",
+      "tags": ["DeepSeek", "开源", "国产", "可商用"], "url": "#"
+    },
+    {
+      "id": 4, "date": "2026-04-25", "displayDate": "2026年4月25日", "category": "AI 工具", "categoryColor": "amber",
+      "title": "Notion AI 3.0 发布：深度集成知识图谱，自动化工作流再升级",
+      "excerpt": "Notion 发布 AI 3.0 版本，全新引入知识图谱引擎，实现跨页面语义关联搜索。新增工作流自动化模块，支持自然语言创建复杂多步骤任务流程。",
+      "tags": ["Notion", "知识图谱", "自动化"], "url": "#"
+    },
+    {
+      "id": 5, "date": "2026-04-24", "displayDate": "2026年4月24日", "category": "政策", "categoryColor": "red",
+      "title": "欧盟 AI 法案正式全面生效：全球首个系统性 AI 监管框架启动",
+      "excerpt": "欧盟 AI 法案（EU AI Act）全面生效，规定高风险 AI 系统必须满足透明度、可追溯性和人类监督要求。违规最高罚款为全球年营业额的 3%。",
+      "tags": ["AI 法案", "欧盟", "监管", "合规"], "url": "#"
+    },
+    {
+      "id": 6, "date": "2026-04-23", "displayDate": "2026年4月23日", "category": "AI 安全", "categoryColor": "cyan",
+      "title": "谷歌发布 Gemini 2.5 安全白皮书：详述 AI 对齐研究最新进展",
+      "excerpt": "谷歌 DeepMind 发布 Gemini 2.5 安全白皮书，公开了 AI 对齐研究的多项新技术，包括 Constitution-based RLHF 升级版和自适应红队测试框架。",
+      "tags": ["AI 安全", "对齐", "Gemini"], "url": "#"
+    },
+    {
+      "id": 7, "date": "2026-04-22", "displayDate": "2026年4月22日", "category": "AI 应用", "categoryColor": "purple",
+      "title": "Cursor 2.0 发布：AI 原生 IDE 集成多模型，支持实时协作",
+      "excerpt": "Cursor 发布 2.0 版本，新增多模型同时调用、实时协作编辑、AI 代码审查流水线等功能，大幅提升团队开发效率。",
+      "tags": ["Cursor", "IDE", "AI 编程"], "url": "#"
+    },
+    {
+      "id": 8, "date": "2026-04-21", "displayDate": "2026年4月21日", "category": "算力", "categoryColor": "amber",
+      "title": "AMD MI350X 正式上市：挑战英伟达 H200，生态成为关键",
+      "excerpt": "AMD MI350X GPU 正式上市，内存带宽提升 50%，ROCm 生态持续完善。国内多家云厂商已宣布采购计划，挑战英伟达 H200 的市场主导地位。",
+      "tags": ["AMD", "GPU", "算力", "AMD MI350X"], "
