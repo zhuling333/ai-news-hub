@@ -1,6 +1,46 @@
 {
   "news": [
     {
+      "id": 11,
+      "date": "2026-04-29",
+      "displayDate": "2026年4月29日",
+      "category": "大模型",
+      "categoryColor": "purple",
+      "title": "百度发布文心大模型4.5 Turbo，上下文窗口提升至200万Tokens",
+      "excerpt": "百度在Create 2025开发者大会上正式发布文心大模型4.5 Turbo，上下文窗口提升至200万Tokens，API价格仅为GPT-4.5的1%。",
+      "content": "百度在Create 2025开发者大会上正式发布文心大模型4.5 Turbo。\n\n**核心升级**：上下文窗口从128K提升至200万Tokens，可处理约150万字长文本。\n\n**价格优势**：API价格仅为GPT-4.5的1%，大幅降低开发者使用门槛。\n\n**多模态能力**：支持文本、图像、视频的统一理解，在多项基准测试中超越GPT-4o。\n\n**生态布局**：百度表示已有超过50万开发者基于文心模型构建应用。",
+      "tags": [
+        "百度",
+        "文心大模型",
+        "大模型",
+        "GPT-4.5"
+      ],
+      "url": "article/11",
+      "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
+      "author": "国内AI观察",
+      "readTime": "6分钟阅读"
+    },
+    {
+      "id": 12,
+      "date": "2026-04-29",
+      "displayDate": "2026年4月29日",
+      "category": "AI应用",
+      "categoryColor": "cyan",
+      "title": "英伟达发布新一代GPU架构Blackwell Ultra，B200X GPU售价接近500万美元",
+      "excerpt": "英伟达GTC大会上发布Blackwell Ultra架构和新一代B200X GPU，单卡售价接近500万美元，主要面向AI推理和科学计算场景。",
+      "content": "英伟达在GTC大会上正式发布Blackwell Ultra架构。\n\n**B200X GPU**：单卡售价接近500万美元，面向AI推理和科学计算。\n\n**性能提升**：相比上一代H100，推理性能提升2.5倍，功耗效率提升3倍。\n\n**H200 NVL72系统**：基于Blackwell Ultra的新一代系统，72卡配置，AI推理吞吐量提升30倍。\n\n**供应情况**：预计2026年下半年开始出货，主要客户包括微软、谷歌、亚马逊等云厂商。",
+      "tags": [
+        "英伟达",
+        "GPU",
+        "Blackwell",
+        "B200X"
+      ],
+      "url": "article/12",
+      "cover": "https://images.unsplash.com/photo-1591238372338-d2788e2d4c9a?w=800&h=500&fit=crop",
+      "author": "硬件科技组",
+      "readTime": "7分钟阅读"
+    },
+    {
       "id": 9,
       "date": "2026-04-28",
       "displayDate": "2026年4月28日",
