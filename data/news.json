@@ -4,46 +4,81 @@
       "id": 1, "date": "2026-04-28", "displayDate": "2026年4月28日", "category": "大模型", "categoryColor": "cyan",
       "title": "OpenAI 发布 GPT-5：多模态能力全面跃升，200 万 token 上下文",
       "excerpt": "OpenAI 正式发布 GPT-5，新模型在视觉理解、代码生成、数学推理方面实现质的飞跃。上下文窗口扩展至 200 万 tokens，首次支持实时多模态交互，API 定价相比 GPT-4 下降 60%。",
-      "tags": ["GPT-5", "OpenAI", "多模态", "大模型"], "url": "#"
+      "content": "OpenAI 于 2026 年 4 月 28 日正式发布 GPT-5，标志着大语言模型进入全新纪元。\n\n**视觉理解**：相比 GPT-4o 提升超过 400%，能准确识别复杂图表、手写笔记、医学影像。新增实时视觉交互功能。\n\n**代码生成**：SWE-Bench 代码修复率从 33.2% 飙升至 78.6%，HumanEval 达 98.1%。\n\n**数学推理**：MATH-500 和 FrontierMath 准确率均超过 95%。\n\n**上下文**：从 128K 扩展至 200 万 tokens。\n\n**定价**：输入 $1.5/百万 tokens，输出 $6/百万 tokens，下降约 60%。",
+      "tags": ["GPT-5", "OpenAI", "多模态", "大模型"],
+      "url": "article/1",
+      "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
+      "author": "林思源", "readTime": "12 分钟阅读"
     },
     {
       "id": 2, "date": "2026-04-27", "displayDate": "2026年4月27日", "category": "开源", "categoryColor": "purple",
       "title": "Anthropic Claude 4 系列发布：1000 万 token 上下文测试创世界纪录",
       "excerpt": "Anthropic 发布 Claude 4 系列，其中 Claude 4 Opus 在 1000 万 token 上下文测试中准确率达 98.7%，创下行业新纪录。视觉理解能力提升 300%，支持视频帧分析。",
-      "tags": ["Claude 4", "Anthropic", "上下文窗口", "视觉理解"], "url": "#"
+      "content": "Anthropic 发布 Claude 4 系列，包括 Opus、Sonnet、Haiku 三个版本。\n\n**上下文**：Claude 4 Opus 实现 1000 万 token 超长上下文，RULER 基准测试准确率 98.7%。\n\n**视觉**：相比 Claude 3.5 提升约 300%，新增视频帧逐帧分析。\n\n**安全**：采用 Constitutional AI v3，减少有害输出同时保持 95%+ 有用性。\n\n**定价**：Opus $15/百万 tokens，Sonnet $3，Haiku $0.25。",
+      "tags": ["Claude 4", "Anthropic", "上下文窗口", "视觉理解"],
+      "url": "article/2",
+      "cover": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=500&fit=crop",
+      "author": "王思涵", "readTime": "8 分钟阅读"
     },
     {
       "id": 3, "date": "2026-04-26", "displayDate": "2026年4月26日", "category": "开源模型", "categoryColor": "cyan",
       "title": "DeepSeek-R2 发布：国产开源模型多 Benchmark 逼近 GPT-4",
       "excerpt": "幻方深度求索团队发布 DeepSeek-R2，在 MMLU、HumanEval、GSM8K 等基准测试中逼近 GPT-4 水准，训练成本仅为同类模型的 1/5，全面开源可商用。",
-      "tags": ["DeepSeek", "开源", "国产", "可商用"], "url": "#"
+      "content": "DeepSeek-R2 正式发布，参数量 236B（MoE 架构，激活 21B）。\n\n**性能**：MMLU 88.3%，HumanEval 92.7%，GSM8K 96.1%。\n\n**成本**：2048 块 H800，45 天训练，总成本约 550 万美元，仅为同级别 1/5。\n\n**架构**：Multi-head Latent Attention + DeepSeekMoE v3。\n\n**开源**：权重、训练说明、推理代码和微调脚本全部开源。",
+      "tags": ["DeepSeek", "开源", "国产", "可商用"],
+      "url": "article/3",
+      "cover": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=500&fit=crop",
+      "author": "赵文博", "readTime": "6 分钟阅读"
     },
     {
       "id": 4, "date": "2026-04-25", "displayDate": "2026年4月25日", "category": "AI 工具", "categoryColor": "amber",
       "title": "Notion AI 3.0 发布：深度集成知识图谱，自动化工作流再升级",
       "excerpt": "Notion 发布 AI 3.0 版本，全新引入知识图谱引擎，实现跨页面语义关联搜索。新增工作流自动化模块，支持自然语言创建复杂多步骤任务流程。",
-      "tags": ["Notion", "知识图谱", "自动化"], "url": "#"
+      "content": "Notion AI 3.0 重大更新。\n\n**知识图谱**：全新引擎实现跨页面语义关联搜索，自动构建知识网络。\n\n**自动化**：新增工作流自动化模块，支持自然语言创建多步骤任务流程。\n\n**协作**：实时多人 AI 协作编辑，AI 可自动分配和跟踪任务。\n\n**集成**：新增与 Figma、Linear、Slack 的深度集成。",
+      "tags": ["Notion", "知识图谱", "自动化"],
+      "url": "article/4",
+      "cover": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=500&fit=crop",
+      "author": "工具评测组", "readTime": "5 分钟阅读"
     },
     {
       "id": 5, "date": "2026-04-24", "displayDate": "2026年4月24日", "category": "政策", "categoryColor": "red",
       "title": "欧盟 AI 法案正式全面生效：全球首个系统性 AI 监管框架启动",
       "excerpt": "欧盟 AI 法案（EU AI Act）全面生效，规定高风险 AI 系统必须满足透明度、可追溯性和人类监督要求。违规最高罚款为全球年营业额的 3%。",
-      "tags": ["AI 法案", "欧盟", "监管", "合规"], "url": "#"
+      "content": "EU AI Act 于 2026 年 4 月 24 日全面生效。\n\n**分类体系**：将 AI 系统分为不可接受风险、高风险、有限风险和最小风险四类。\n\n**高风险要求**：必须满足透明度、可追溯性和人类监督要求。\n\n**罚款**：违规最高罚款为全球年营业额的 3% 或 3500 万欧元。\n\n**影响**：全球首个系统性 AI 监管框架，预计将影响全球 AI 企业的合规策略。",
+      "tags": ["AI 法案", "欧盟", "监管", "合规"],
+      "url": "article/5",
+      "cover": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=500&fit=crop",
+      "author": "政策研究组", "readTime": "7 分钟阅读"
     },
     {
       "id": 6, "date": "2026-04-23", "displayDate": "2026年4月23日", "category": "AI 安全", "categoryColor": "cyan",
       "title": "谷歌发布 Gemini 2.5 安全白皮书：详述 AI 对齐研究最新进展",
       "excerpt": "谷歌 DeepMind 发布 Gemini 2.5 安全白皮书，公开了 AI 对齐研究的多项新技术，包括 Constitution-based RLHF 升级版和自适应红队测试框架。",
-      "tags": ["AI 安全", "对齐", "Gemini"], "url": "#"
+      "content": "谷歌 DeepMind 发布 Gemini 2.5 安全白皮书。\n\n**对齐技术**：Constitution-based RLHF v2，在保持模型有用性的同时显著降低有害输出。\n\n**红队测试**：自适应红队测试框架，可动态调整攻击策略。\n\n**可解释性**：新增强化可解释性工具链，支持模型决策路径可视化。\n\n**开源**：部分对齐工具和测试框架已在 GitHub 开源。",
+      "tags": ["AI 安全", "对齐", "Gemini"],
+      "url": "article/6",
+      "cover": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=500&fit=crop",
+      "author": "安全研究组", "readTime": "9 分钟阅读"
     },
     {
       "id": 7, "date": "2026-04-22", "displayDate": "2026年4月22日", "category": "AI 应用", "categoryColor": "purple",
       "title": "Cursor 2.0 发布：AI 原生 IDE 集成多模型，支持实时协作",
       "excerpt": "Cursor 发布 2.0 版本，新增多模型同时调用、实时协作编辑、AI 代码审查流水线等功能，大幅提升团队开发效率。",
-      "tags": ["Cursor", "IDE", "AI 编程"], "url": "#"
+      "content": "Cursor 2.0 正式发布。\n\n**多模型**：支持同时调用 GPT-5、Claude 4、Gemini 2.5 等多个模型，自动选择最优结果。\n\n**协作**：新增实时协作编辑，AI 可自动同步代码变更。\n\n**代码审查**：AI 代码审查流水线，自动检测潜在问题并给出修复建议。\n\n**性能**：启动速度提升 60%，内存占用降低 40%。",
+      "tags": ["Cursor", "IDE", "AI 编程"],
+      "url": "article/7",
+      "cover": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=500&fit=crop",
+      "author": "开发工具组", "readTime": "6 分钟阅读"
     },
     {
       "id": 8, "date": "2026-04-21", "displayDate": "2026年4月21日", "category": "算力", "categoryColor": "amber",
       "title": "AMD MI350X 正式上市：挑战英伟达 H200，生态成为关键",
       "excerpt": "AMD MI350X GPU 正式上市，内存带宽提升 50%，ROCm 生态持续完善。国内多家云厂商已宣布采购计划，挑战英伟达 H200 的市场主导地位。",
-      "tags": ["AMD", "GPU", "算力", "AMD MI350X"], "
+      "content": "AMD MI350X GPU 正式上市。\n\n**性能**：内存带宽提升 50%，FP16 算力达 1.2 PFLOPS。\n\n**生态**：ROCm 6.0 对 PyTorch、JAX 的兼容性大幅提升。\n\n**价格**：相比 H200 低 30% 左右，性价比优势明显。\n\n**采购**：国内多家云厂商已宣布采购计划。",
+      "tags": ["AMD", "GPU", "算力", "MI350X"],
+      "url": "article/8",
+      "cover": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop",
+      "author": "硬件研究组", "readTime": "5 分钟阅读"
+    }
+  ]
+}
