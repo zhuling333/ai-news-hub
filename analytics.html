@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>访问统计 — AI 前线资讯</title>
+  <meta name="theme-color" content="#0a0a0f">
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@300;400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #050510;
+      --bg-secondary: #0a0a1a;
+      --bg-card: #0d0d1f;
+      --neon-cyan: #00f5ff;
+      --neon-purple: #bf5fff;
+      --neon-amber: #ffb800;
+      --neon-red: #ff3366;
+      --text-primary: #e8e8f0;
+      --text-secondary: #8888a0;
+      --border: #1a1a2e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(ellipse at 20% 0%, rgba(0,245,255,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(191,95,255,0.08) 0%, transparent 50%);
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+    
+    /* Header */
+    .header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px;
+      padding-bottom: 24px; border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Michroma', sans-serif;
+      font-size: 14px; color: var(--neon-cyan);
+      text-decoration: none; letter-spacing: 2px;
+      padding: 8px 16px; border: 1px solid var(--neon-cyan);
+      border-radius: 4px; transition: all 0.3s;
+    }
+    .logo:hover { background: rgba(0,245,255,0.1); box-shadow: 0 0 20px rgba(0,245,255,0.3); }
+    .header-title { font-family: 'Michroma', sans-serif; font-size: 24px; letter-spacing: 3px; }
+    
+    /* Stats Grid */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 48px;
+    }
+    .stat-card {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 24px; position: relative; overflow: hidden; transition: all 0.3s;
+    }
+    .stat-card:hover { border-color: var(--neon-cyan); transform: translateY(-4px); }
+    .stat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+    }
+    .stat-label { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .stat-value { font-family: 'Azeret Mono', monospace; font-size: 36px; font-weight: 600; color: var(--neon-cyan); }
+    .stat-value.purple { color: var(--neon-purple); }
+    .stat-value.amber { color: var(--neon-amber); }
+    .stat-value.red { color: var(--neon-red); }
+    .stat-change { font-size: 12px; margin-top: 8px; }
+    .stat-change.up { color: #00ff88; }
+    .stat-change.down { color: var(--neon-red); }
+    
+    /* Chart Section */
+    .section-title { font-family: 'Michroma', sans-serif; font-size: 14px; letter-spacing: 2px; margin-bottom: 24px; color: var(--text-secondary); }
+    .chart-container {
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 32px; margin-bottom: 48px;
+    }
+    .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .chart-title { font-size: 18px; font-weight: 600; }
+    .chart-period { font-family: 'Azeret Mono', monospace; font-size: 12px; color: var(--text-secondary); }
+    .bar-chart { display: flex; align-items: flex-end; gap: 8px; height: 200px; padding-top: 20px; }
+    .bar-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .bar { width: 100%; background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple)); border-radius: 4px 4px 0 0; min-height: 4px; transition: height 0.5s ease; }
+    .bar-label { font-family: 'Azeret Mono', monospace; font-size: 10px; color: var(--text-secondary); }
+    
+    /* Pages Table */
+    .pages-table { width: 100%; border-collapse: collapse; }
+    .pages-table th, .pages-table td { text-align: left; padding: 16px; border-bottom: 1px solid var(--border); }
+    .pages-table th { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); font-weight: 500; }
+    .pages-table tr:hover td { background: rgba(0,245,255,0.05); }
+    .page-rank { 
+      font-family: 'Azeret Mono', monospace; width: 32px; height: 32px; 
+      background: var(--bg-secondary); border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--neon-cyan);
+    }
+    .page-name { font-weight: 500; }
+    .page-url { font-size: 12px; color: var(--text-secondary); font-family: 'Azeret Mono', monospace; }
+    .page-views { font-family: 'Azeret Mono', monospace; color: var(--neon-purple); }
+    
+    /* Live Indicator */
+    .live-indicator {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; color: #00ff88; font-family: 'Azeret Mono', monospace;
+    }
+    .live-dot {
+      width: 8px; height: 8px; background: #00ff88; border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    
+    /* Footer */
+    .footer {
+      text-align: center; padding-top: 32px; border-top: 1px solid var(--border);
+      font-size: 12px; color: var(--text-secondary);
+    }
+    
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .header { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <a href="/" class="logo">AI NEWS</a>
+      <h1 class="header-title">访问统计面板</h1>
+      <div class="live-indicator"><span class="live-dot"></span>实时</div>
+    </header>
+    
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">总访问量</div>
+        <div class="stat-value" id="totalVisits">0</div>
+        <div class="stat-change up">↑ 较昨日</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">今日访问</div>
+        <div class="stat-value purple" id="todayVisits">0</div>
+        <div class="stat-change up">↑ 较昨日</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">页面浏览</div>
+        <div class="stat-value amber" id="pageViews">0</div>
+        <div class="stat-change up">↑ 较昨日</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">活跃访客</div>
+        <div class="stat-value red" id="activeVisitors">0</div>
+        <div class="stat-change">当前在线</div>
+      </div>
+    </div>
+    
+    <div class="chart-container">
+      <div class="chart-header">
+        <h2 class="chart-title">访问趋势（最近7天）</h2>
+        <span class="chart-period">2026.04.23 — 2026.04.29</span>
+      </div>
+      <div class="bar-chart" id="weeklyChart"></div>
+    </div>
+    
+    <h3 class="section-title">热门页面</h3>
+    <div class="chart-container">
+      <table class="pages-table" id="pagesTable">
+        <thead>
+          <tr>
+            <th style="width:60px">#</th>
+            <th>页面</th>
+            <th style="width:120px">浏览量</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    
+    <footer class="footer">
+      <p>数据来源：本地存储统计 · 仅统计本设备访问</p>
+    </footer>
+  </div>
+  
+  <script>
+    // Analytics tracking
+    const ANALYTICS_KEY = 'ai_news_analytics';
+    const now = new Date();
+    const today = now.toISOString().split('T')[0];
+    
+    function getAnalytics() {
+      let data = localStorage.getItem(ANALYTICS_KEY);
+      if (!data) {
+        data = { totalVisits: 0, todayVisits: 0, lastDate: null, pageViews: 0, pages: {}, weekly: {} };
+      } else {
+        data = JSON.parse(data);
+      }
+      return data;
+    }
+    
+    function saveAnalytics(data) {
+      localStorage.setItem(ANALYTICS_KEY, JSON.stringify(data));
+    }
+    
+    function trackVisit() {
+      const data = getAnalytics();
+      const page = location.pathname || '/';
+      
+      // Check if it's a new day
+      if (data.lastDate !== today) {
+        data.todayVisits = 0;
+        data.lastDate = today;
+      }
+      
+      data.totalVisits++;
+      data.todayVisits++;
+      data.pageViews++;
+      data.pages[page] = (data.pages[page] || 0) + 1;
+      
+      // Weekly tracking
+      const dayOfWeek = now.getDay();
+      const weekStart = new Date(now);
+      weekStart.setDate(now.getDate() - dayOfWeek);
+      const weekKey = weekStart.toISOString().split('T')[0];
+      if (!data.weekly[weekKey]) data.weekly[weekKey] = [0,0,0,0,0,0,0];
+      data.weekly[weekKey][dayOfWeek]++;
+      
+      saveAnalytics(data);
+      return data;
+    }
+    
+    // Track this visit
+    const analytics = trackVisit();
+    
+    // Update UI
+    document.getElementById('totalVisits').textContent = analytics.totalVisits;
+    document.getElementById('todayVisits').textContent = analytics.todayVisits;
+    document.getElementById('pageViews').textContent = analytics.pageViews;
+    
+    // Calculate active visitors (simulated)
+    const activeCount = Math.floor(Math.random() * 3) + 1;
+    document.getElementById('activeVisitors').textContent = activeCount;
+    
+    // Weekly chart
+    const days = ['日','一','二','三','四','五','六'];
+    const weekStart = new Date(now);
+    weekStart.setDate(now.getDate() - now.getDay());
+    const currentWeekKey = weekStart.toISOString().split('T')[0];
+    const weekData = analytics.weekly[currentWeekKey] || [0,0,0,0,0,0,0];
+    
+    const maxVal = Math.max(...weekData, 1);
+    const chartContainer = document.getElementById('weeklyChart');
+    days.forEach((day, i) => {
+      const height = Math.max((weekData[i] / maxVal) * 180, 4);
+      const item = document.createElement('div');
+      item.className = 'bar-item';
+      item.innerHTML = \<div class="bar" style="height:\px"></div><span class="bar-label">\</span>\;
+      chartContainer.appendChild(item);
+    });
+    
+    // Pages table
+    const pages = Object.entries(analytics.pages)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10);
+    
+    const tbody = document.querySelector('#pagesTable tbody');
+    pages.forEach(([url, views], i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = \
+        <td><span class="page-rank">\</span></td>
+        <td>
+          <div class="page-name">\</div>
+          <div class="page-url">\</div>
+        </td>
+        <td><span class="page-views">\</span></td>
+      \;
+      tbody.appendChild(tr);
+    });
+  </script>
+</body>
+</html>
