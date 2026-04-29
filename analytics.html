@@ -30,8 +30,6 @@
         radial-gradient(ellipse at 80% 100%, rgba(191,95,255,0.08) 0%, transparent 50%);
     }
     .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
-    
-    /* Header */
     .header {
       display: flex; align-items: center; justify-content: space-between; margin-bottom: 48px;
       padding-bottom: 24px; border-bottom: 1px solid var(--border);
@@ -45,8 +43,18 @@
     }
     .logo:hover { background: rgba(0,245,255,0.1); box-shadow: 0 0 20px rgba(0,245,255,0.3); }
     .header-title { font-family: 'Michroma', sans-serif; font-size: 24px; letter-spacing: 3px; }
-    
-    /* Stats Grid */
+    .live-indicator {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; color: #00ff88; font-family: 'Azeret Mono', monospace;
+    }
+    .live-dot {
+      width: 8px; height: 8px; background: #00ff88; border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
     .stats-grid {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 48px;
     }
@@ -64,11 +72,7 @@
     .stat-value.purple { color: var(--neon-purple); }
     .stat-value.amber { color: var(--neon-amber); }
     .stat-value.red { color: var(--neon-red); }
-    .stat-change { font-size: 12px; margin-top: 8px; }
-    .stat-change.up { color: #00ff88; }
-    .stat-change.down { color: var(--neon-red); }
-    
-    /* Chart Section */
+    .stat-change { font-size: 12px; margin-top: 8px; color: #00ff88; }
     .section-title { font-family: 'Michroma', sans-serif; font-size: 14px; letter-spacing: 2px; margin-bottom: 24px; color: var(--text-secondary); }
     .chart-container {
       background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
@@ -81,8 +85,6 @@
     .bar-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; }
     .bar { width: 100%; background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple)); border-radius: 4px 4px 0 0; min-height: 4px; transition: height 0.5s ease; }
     .bar-label { font-family: 'Azeret Mono', monospace; font-size: 10px; color: var(--text-secondary); }
-    
-    /* Pages Table */
     .pages-table { width: 100%; border-collapse: collapse; }
     .pages-table th, .pages-table td { text-align: left; padding: 16px; border-bottom: 1px solid var(--border); }
     .pages-table th { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-secondary); font-weight: 500; }
@@ -95,27 +97,10 @@
     .page-name { font-weight: 500; }
     .page-url { font-size: 12px; color: var(--text-secondary); font-family: 'Azeret Mono', monospace; }
     .page-views { font-family: 'Azeret Mono', monospace; color: var(--neon-purple); }
-    
-    /* Live Indicator */
-    .live-indicator {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; color: #00ff88; font-family: 'Azeret Mono', monospace;
-    }
-    .live-dot {
-      width: 8px; height: 8px; background: #00ff88; border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.2); }
-    }
-    
-    /* Footer */
     .footer {
       text-align: center; padding-top: 32px; border-top: 1px solid var(--border);
       font-size: 12px; color: var(--text-secondary);
     }
-    
     @media (max-width: 768px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .header { flex-direction: column; gap: 16px; text-align: center; }
@@ -133,22 +118,22 @@
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-label">总访问量</div>
-        <div class="stat-value" id="totalVisits">0</div>
-        <div class="stat-change up">↑ 较昨日</div>
+        <div class="stat-value" id="totalVisits">-</div>
+        <div class="stat-change">全球实时统计</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">今日访问</div>
         <div class="stat-value purple" id="todayVisits">0</div>
-        <div class="stat-change up">↑ 较昨日</div>
+        <div class="stat-change">本设备</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">页面浏览</div>
         <div class="stat-value amber" id="pageViews">0</div>
-        <div class="stat-change up">↑ 较昨日</div>
+        <div class="stat-change">本设备</div>
       </div>
       <div class="stat-card">
         <div class="stat-label">活跃访客</div>
-        <div class="stat-value red" id="activeVisitors">0</div>
+        <div class="stat-value red" id="activeVisitors">-</div>
         <div class="stat-change">当前在线</div>
       </div>
     </div>
@@ -176,104 +161,87 @@
     </div>
     
     <footer class="footer">
-      <p>数据来源：本地存储统计 · 仅统计本设备访问</p>
+      <p>全球统计：API 实时计数 · 本地统计：浏览器 localStorage</p>
     </footer>
   </div>
   
   <script>
-    // Analytics tracking
-    const ANALYTICS_KEY = 'ai_news_analytics';
-    const now = new Date();
-    const today = now.toISOString().split('T')[0];
+    var ANALYTICS_KEY = 'ai_news_analytics';
+    var now = new Date();
+    var today = now.toISOString().split('T')[0];
     
-    function getAnalytics() {
-      let data = localStorage.getItem(ANALYTICS_KEY);
-      if (!data) {
-        data = { totalVisits: 0, todayVisits: 0, lastDate: null, pageViews: 0, pages: {}, weekly: {} };
-      } else {
-        data = JSON.parse(data);
-      }
+    function getLocalData() {
+      var data = localStorage.getItem(ANALYTICS_KEY);
+      if (!data) data = { todayVisits: 0, lastDate: null, pageViews: 0, pages: {}, weekly: {} };
+      else data = JSON.parse(data);
+      if (data.lastDate !== today) { data.todayVisits = 0; data.lastDate = today; }
       return data;
     }
     
-    function saveAnalytics(data) {
-      localStorage.setItem(ANALYTICS_KEY, JSON.stringify(data));
-    }
+    function saveLocalData(data) { localStorage.setItem(ANALYTICS_KEY, JSON.stringify(data)); }
     
-    function trackVisit() {
-      const data = getAnalytics();
-      const page = location.pathname || '/';
-      
-      // Check if it's a new day
-      if (data.lastDate !== today) {
-        data.todayVisits = 0;
-        data.lastDate = today;
-      }
-      
-      data.totalVisits++;
+    function trackLocal() {
+      var data = getLocalData();
+      var page = location.pathname || '/';
       data.todayVisits++;
       data.pageViews++;
       data.pages[page] = (data.pages[page] || 0) + 1;
-      
-      // Weekly tracking
-      const dayOfWeek = now.getDay();
-      const weekStart = new Date(now);
+      var dayOfWeek = now.getDay();
+      var weekStart = new Date(now);
       weekStart.setDate(now.getDate() - dayOfWeek);
-      const weekKey = weekStart.toISOString().split('T')[0];
+      var weekKey = weekStart.toISOString().split('T')[0];
       if (!data.weekly[weekKey]) data.weekly[weekKey] = [0,0,0,0,0,0,0];
       data.weekly[weekKey][dayOfWeek]++;
-      
-      saveAnalytics(data);
+      saveLocalData(data);
       return data;
     }
     
-    // Track this visit
-    const analytics = trackVisit();
+    async function fetchGlobalStats() {
+      try {
+        var res = await fetch('/api/count');
+        if (res.ok) {
+          var d = await res.json();
+          document.getElementById('totalVisits').textContent = d.count || 0;
+        }
+      } catch(e) {}
+    }
     
-    // Update UI
-    document.getElementById('totalVisits').textContent = analytics.totalVisits;
-    document.getElementById('todayVisits').textContent = analytics.todayVisits;
-    document.getElementById('pageViews').textContent = analytics.pageViews;
+    var localData = trackLocal();
+    document.getElementById('todayVisits').textContent = localData.todayVisits;
+    document.getElementById('pageViews').textContent = localData.pageViews;
+    fetchGlobalStats();
+    setInterval(fetchGlobalStats, 30000);
     
-    // Calculate active visitors (simulated)
-    const activeCount = Math.floor(Math.random() * 3) + 1;
-    document.getElementById('activeVisitors').textContent = activeCount;
-    
-    // Weekly chart
-    const days = ['日','一','二','三','四','五','六'];
-    const weekStart = new Date(now);
+    var days = ['日','一','二','三','四','五','六'];
+    var weekStart = new Date(now);
     weekStart.setDate(now.getDate() - now.getDay());
-    const currentWeekKey = weekStart.toISOString().split('T')[0];
-    const weekData = analytics.weekly[currentWeekKey] || [0,0,0,0,0,0,0];
+    var currentWeekKey = weekStart.toISOString().split('T')[0];
+    var weekData = localData.weekly[currentWeekKey] || [0,0,0,0,0,0,0];
+    var maxVal = Math.max.apply(null, weekData.concat([1]));
+    var chartContainer = document.getElementById('weeklyChart');
+    if (chartContainer) {
+      chartContainer.innerHTML = '';
+      for (var i = 0; i < days.length; i++) {
+        var height = Math.max((weekData[i] / maxVal) * 180, 4);
+        var item = document.createElement('div');
+        item.className = 'bar-item';
+        item.innerHTML = '<div class="bar" style="height:' + height + 'px"></div><span class="bar-label">' + days[i] + '</span>';
+        chartContainer.appendChild(item);
+      }
+    }
     
-    const maxVal = Math.max(...weekData, 1);
-    const chartContainer = document.getElementById('weeklyChart');
-    days.forEach((day, i) => {
-      const height = Math.max((weekData[i] / maxVal) * 180, 4);
-      const item = document.createElement('div');
-      item.className = 'bar-item';
-      item.innerHTML = \<div class="bar" style="height:\px"></div><span class="bar-label">\</span>\;
-      chartContainer.appendChild(item);
-    });
-    
-    // Pages table
-    const pages = Object.entries(analytics.pages)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 10);
-    
-    const tbody = document.querySelector('#pagesTable tbody');
-    pages.forEach(([url, views], i) => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = \
-        <td><span class="page-rank">\</span></td>
-        <td>
-          <div class="page-name">\</div>
-          <div class="page-url">\</div>
-        </td>
-        <td><span class="page-views">\</span></td>
-      \;
-      tbody.appendChild(tr);
-    });
+    var pages = Object.entries(localData.pages).sort(function(a, b) { return b[1] - a[1]; }).slice(0, 10);
+    var tbody = document.querySelector('#pagesTable tbody');
+    if (tbody) {
+      tbody.innerHTML = '';
+      for (var j = 0; j < pages.length; j++) {
+        var url = pages[j][0];
+        var views = pages[j][1];
+        var tr = document.createElement('tr');
+        tr.innerHTML = '<td><span class="page-rank">' + (j + 1) + '</span></td><td><div class="page-name">' + (url === '/' ? '首页' : url) + '</div><div class="page-url">' + url + '</div></td><td><span class="page-views">' + views + '</span></td>';
+        tbody.appendChild(tr);
+      }
+    }
   </script>
 </body>
 </html>
