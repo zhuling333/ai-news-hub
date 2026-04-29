@@ -1,0 +1,20 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/><stop offset="100%" style="stop-color:#050510"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f5ff"/><stop offset="100%" style="stop-color:#bf5fff"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="6" fill="url(#bg)" stroke="#1a1a2e" stroke-width="0.5"/>
+  <text x="16" y="22" font-family="Arial Black,sans-serif" font-size="16" font-weight="900" fill="url(#neon)" filter="url(#glow)" text-anchor="middle">AI</text>
+  <circle cx="6" cy="6" r="1.5" fill="#00f5ff" opacity="0.8"/>
+  <circle cx="26" cy="6" r="1" fill="#bf5fff" opacity="0.6"/>
+  <circle cx="6" cy="26" r="1" fill="#bf5fff" opacity="0.6"/>
+  <circle cx="26" cy="26" r="1.5" fill="#00f5ff" opacity="0.8"/>
+</svg>
