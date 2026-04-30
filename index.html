@@ -44,8 +44,8 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .nav-trigger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* NAV DRAWER */
-.nav-drawer{position:fixed;top:var(--header-h);left:0;right:0;background:rgba(10,10,26,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:999;transform:translateY(-110%);transition:transform .35s cubic-bezier(.4,0,.2,1);max-height:calc(100vh - var(--header-h));overflow-y:auto}
-.nav-drawer.open{transform:translateY(0)}
+.nav-drawer{position:fixed;top:var(--header-h);left:0;right:0;background:rgba(10,10,26,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:998;height:0;overflow:hidden;transition:height .35s cubic-bezier(.4,0,.2,1);max-height:calc(100vh - var(--header-h));overflow-y:auto}
+.nav-drawer.open{height:auto;overflow-y:visible}
 .nav-links{display:flex;list-style:none;gap:0;align-items:stretch;flex-direction:column;padding:8px 0}
 .nav-links li{flex:1}
 .nav-links a{display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--text-secondary);padding:16px 20px;border-bottom:1px solid var(--border);transition:var(--transition);cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -61,6 +61,7 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 /* PAGE SPA */
 .page{display:none}.page.active{display:block}
 main{padding-top:var(--header-h)}
+html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--header-h) + var(--drawer-h, 0px))}
 
 /* HERO */
 .hero{padding:60px 0 48px;position:relative}
@@ -86,19 +87,19 @@ main{padding-top:var(--header-h)}
 
 /* FEATURED GRID */
 .featured-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-bottom:60px}
-.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);cursor:pointer;position:relative;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);cursor:pointer;position:relative;-webkit-tap-highlight-color:transparent;touch-action:manipulation;min-height:120px}
 .card:active{transform:scale(.98)}
-.card-featured{grid-column:span 8;grid-row:span 2}.card-regular{grid-column:span 4}.card-sm{grid-column:span 6}
-.card-image{position:relative;overflow:hidden;height:180px;background:linear-gradient(135deg,var(--bg-secondary),#1a1a3e);background-size:cover;background-position:center}
-.card-featured .card-image{height:300px}
+.card-featured{grid-column:span 8}
+.card-image{position:relative;height:180px;background:linear-gradient(135deg,var(--bg-secondary),#1a1a3e);background-size:cover;background-position:center}
+.card-featured .card-image{max-height:300px;height:auto;aspect-ratio:16/9}
 .card-image .card-tag{position:absolute;top:12px;left:12px;font-family:var(--font-mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:4px 8px;border-radius:20px;border:1px solid;backdrop-filter:blur(10px);background:rgba(0,0,0,.5)}
 .card-tag.cyan{color:var(--cyan);border-color:var(--cyan)}.card-tag.purple{color:var(--purple);border-color:var(--purple)}
 .card-tag.amber{color:var(--amber);border-color:var(--amber)}.card-tag.red{color:var(--red-hot);border-color:var(--red-hot)}
 .card-tag-hot{position:absolute;top:12px;right:12px;font-family:var(--font-mono);font-size:8px;font-weight:600;color:#fff;background:var(--red-hot);padding:4px 8px;border-radius:20px}
-.card-body{padding:16px}
+.card-body{padding:16px;}
 .card-meta{font-family:var(--font-mono);font-size:9px;color:var(--text-dim);display:flex;gap:10px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
 .card-meta .sep{color:var(--border-bright)}
-.card-title{font-size:16px;font-weight:700;line-height:1.4;margin-bottom:8px;transition:color .2s}
+.card-title{font-size:16px;font-weight:700;line-height:1.4;margin-bottom:8px;transition:color .2s;white-space:normal;overflow:visible}
 .card-featured .card-title{font-size:22px}.card:hover .card-title{color:var(--cyan)}
 .card-excerpt{font-size:13px;color:var(--text-secondary);line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card-featured .card-excerpt{-webkit-line-clamp:4}
@@ -187,8 +188,8 @@ main{padding-top:var(--header-h)}
   .nav-trigger{display:flex}
   .live-badge{display:none}
   .card-regular,.card-sm{grid-column:span 12}
-  .card-featured{grid-column:span 12;grid-row:span 1}
-  .card-featured .card-image{height:220px}
+.card-featured{grid-column:span 12}
+.card-featured .card-image{max-height:220px;height:auto;aspect-ratio:16/9}
   .latest-grid{grid-template-columns:1fr}
   .skills-grid{grid-template-columns:1fr}
   .trends-grid{grid-template-columns:1fr}
@@ -378,11 +379,12 @@ main{padding-top:var(--header-h)}
     trigger.classList.toggle('active');
     trigger.setAttribute('aria-expanded',!isOpen);
     document.body.style.overflow=isOpen?'':'hidden';
+    document.body.classList.toggle('drawer-is-open',!isOpen);document.documentElement.style.setProperty('--drawer-h',isOpen?(drawer.offsetHeight+'px'):'0px');
   });
   // Close on nav link click
   drawer.querySelectorAll('a').forEach(function(link){
     link.addEventListener('click',function(){
-      drawer.classList.remove('open');
+      drawer.classList.remove('open');document.body.classList.remove('drawer-is-open');
       trigger.classList.remove('active');
       trigger.setAttribute('aria-expanded','false');
       document.body.style.overflow='';
@@ -391,7 +393,7 @@ main{padding-top:var(--header-h)}
   // Close on resize to desktop
   window.addEventListener('resize',function(){
     if(window.innerWidth>768){
-      drawer.classList.remove('open');
+      drawer.classList.remove('open');document.body.classList.remove('drawer-is-open');
       trigger.classList.remove('active');
       trigger.setAttribute('aria-expanded','false');
       document.body.style.overflow='';

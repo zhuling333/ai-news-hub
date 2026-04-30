@@ -1,1 +1,53 @@
-{"latest":[{"id":1,"num":"01","tag":"AI 安全","title":"谷歌发布 Gemini 2.5 安全白皮书：揭示 AI 对齐研究新进展","date":"2026-04-28 09:15","url":"article/1"},{"id":2,"num":"02","tag":"开源","title":"Meta 发布 LLaMA 4：参数量翻倍，推理效率提升 40%","date":"2026-04-28 08:30","url":"article/2"},{"id":3,"num":"03","tag":"AI 应用","title":"Notion AI 3.0 发布：深度集成知识库，自动化工作流再升级","date":"2026-04-27 18:45","url":"article/3"},{"id":4,"num":"04","tag":"政策","title":"欧盟 AI 法案全面生效：全球首个系统性 AI 监管框架正式启动","date":"2026-04-27 14:20","url":"article/4"}],"updatedAt":"2026-04-28T13:00:00+08:00"}
+{
+  "latest": [
+    {
+      "id": 1,
+      "num": "01",
+      "tag": "AI应用",
+      "title": "苹果计划在iOS27中推出Siri相机模式并升级视觉人工智能功能",
+      "date": "2026-04-30 03:00",
+      "url": "https://k.sina.com.cn/article_7857201856_1d45362c001904vz10.html"
+    },
+    {
+      "id": 2,
+      "num": "02",
+      "tag": "AI监管",
+      "title": "国家网信办依法对剪映、猫箱、即梦AI等平台实施处罚",
+      "date": "2026-04-30 02:00",
+      "url": "https://k.sina.com.cn/article_7857201856_1d45362c001904vx6g.html"
+    },
+    {
+      "id": 3,
+      "num": "03",
+      "tag": "AI峰会",
+      "title": "2026人工智能基础设施峰会在沪召开，智算筑基生态共生",
+      "date": "2026-04-28 07:28",
+      "url": "https://gdss.doit.com.cn/"
+    },
+    {
+      "id": 4,
+      "num": "04",
+      "tag": "AI研究",
+      "title": "斯坦福大学发布《2026年人工智能指数报告》：12张图表解读AI发展现状和趋势",
+      "date": "2026-04-27 17:22",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_13769ef2ac364452"
+    },
+    {
+      "id": 5,
+      "num": "05",
+      "tag": "AI应用",
+      "title": "新京报AI研究院联合Xsignal发布《2026春季AI应用竞争力报告》",
+      "date": "2026-04-27 15:13",
+      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_58569ef0c8237852"
+    },
+    {
+      "id": 6,
+      "num": "06",
+      "tag": "AI产业",
+      "title": "SpaceX收购AI编程公司Cursor，交易金额达600亿美元",
+      "date": "2026-04-26 09:17",
+      "url": "https://www.nbd.com.cn/columns/1367/"
+    }
+  ],
+  "updatedAt": "2026-04-30T09:08:00+08:00"
+}
