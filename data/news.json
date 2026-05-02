@@ -1,6 +1,71 @@
 {
   "news": [
     {
+      "id": 15,
+      "date": "2026-05-01",
+      "category": "AI产品",
+      "title": "腾讯ima推出知识Agent「copilot」，AI知识管理赛道新突破",
+      "summary": "腾讯旗下知识库产品ima正式推出copilot功能，定位“知识Agent”，支持智能问答、自动摘要、知识关联图谱，标志着AI知识管理从“搜索”向“辅助决策”进化。",
+      "tags": [
+        "腾讯",
+        "IMA",
+        "知识管理",
+        "AI Agent"
+      ],
+      "source": "36氪",
+      "url": "https://36kr.com/",
+      "cover": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600"
+    },
+    {
+      "id": 16,
+      "date": "2026-05-01",
+      "category": "AI产业",
+      "title": "Anthropic估值冲击9000亿美元，即将反超OpenAI",
+      "summary": "AI独角兽估值竞赛白热化。据媒体报道，Anthropic最新融资估值逼近9000亿美元，投资人甚至用豪宅换股份。若达成，将超越OpenAI成为全球估值最高AI公司。",
+      "tags": [
+        "Anthropic",
+        "OpenAI",
+        "AI估值",
+        "独角兽"
+      ],
+      "source": "前沿科技学习分享圈",
+      "url": "https://www.163.com/",
+      "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600"
+    },
+    {
+      "id": 17,
+      "date": "2026-05-02",
+      "category": "AI模型",
+      "title": "DeepSeek多模态模型技术报告正式公布，性能领跑开源",
+      "summary": "DeepSeek发布最新多模态模型技术报告，详细披露视觉-语言对齐训练策略。在多项基准测试中超越同级别开源模型，持续巩固其在开源大模型领域的领先地位。",
+      "tags": [
+        "DeepSeek",
+        "多模态",
+        "开源",
+        "V4"
+      ],
+      "source": "CSDN",
+      "url": "https://www.csdn.net/",
+      "cover": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600"
+    },
+    {
+      "id": 18,
+      "date": "2026-05-02",
+      "category": "AI产业",
+      "title": "科技巨头AI军备竞赛：四大巨头资本开支升至7250亿美元",
+      "summary": "最新财报显示，微软、亚马逊、Meta、谷歌2026年AI基础设施合计资本开支预计达7250亿美元。Alphabet单日市值暴增4210亿美元，AI投入回报开始兑现。",
+      "tags": [
+        "微软",
+        "亚马逊",
+        "Meta",
+        "谷歌",
+        "资本开支"
+      ],
+      "source": "新浪财经",
+      "url": "https://finance.sina.com.cn/",
+      "cover": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600"
+    },
+    {
       "id": 13,
       "date": "2026-04-30",
       "displayDate": "2026年4月30日",
@@ -277,5 +342,6 @@
       "author": "硬件研究组",
       "readTime": "5 分钟阅读"
     }
-  ]
+  ],
+  "updated": "2026-05-02"
 }
