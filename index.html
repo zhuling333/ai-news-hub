@@ -52,6 +52,11 @@ body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(
 .nav-links a:last-child{border-bottom:none}
 .nav-links a:hover,.nav-links a.active{color:var(--cyan);background:var(--cyan-glow)}
 
+/* DESKTOP NAV BAR */
+.nav-bar{display:flex;align-items:center;gap:2px;margin-left:24px;flex:1}
+.nav-bar a{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-secondary);padding:8px 14px;border-radius:var(--radius-sm);transition:var(--transition);cursor:pointer;text-decoration:none;-webkit-tap-highlight-color:transparent;white-space:nowrap}
+.nav-bar a:hover,.nav-bar a.active{color:var(--cyan);background:var(--cyan-glow)}
+
 /* LIVE BADGE */
 .header-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
 .live-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--red-hot);background:rgba(255,61,113,.1);border:1px solid rgba(255,61,113,.3);border-radius:20px;padding:4px 10px}
@@ -186,6 +191,7 @@ html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--he
   :root{--header-h:56px}
   .container{padding:0 16px}
   .nav-trigger{display:flex}
+  .nav-bar{display:none}
   .live-badge{display:none}
   .card-regular,.card-sm{grid-column:span 12}
 .card-featured{grid-column:span 12}
@@ -277,6 +283,7 @@ html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--he
 <div class="logo-icon"><svg viewBox="0 0 32 32" fill="none"><rect x="1" y="1" width="30" height="30" rx="6" stroke="#00e5ff" stroke-width="1.5"/><path d="M8 24V12l4 8 4-8v12" stroke="#b347ea" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="16" r="7" stroke="#00e5ff" stroke-width="1.5"/><path d="M24 13v3h3" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
 <div class="logo-text">AI<span>前线</span></div>
 </a>
+<nav class="nav-bar" aria-label="桌面导航"><a data-page="home" class="active">首页</a><a data-page="news">AI资讯</a><a data-page="skills">AI技能</a><a data-page="trends">行业动态</a></nav>
 <div class="header-right">
 <button class="nav-trigger" id="navTrigger" aria-label="打开导航菜单" aria-expanded="false">
 <span></span><span></span><span></span>

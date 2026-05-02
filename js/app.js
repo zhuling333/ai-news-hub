@@ -42,8 +42,8 @@
     if (detailPage) detailPage.classList.remove('active');
 
     // 返回首页
-    document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-    document.querySelector('.nav-links a[data-page="home"]').classList.add('active');
+    document.querySelectorAll('.nav-links a, .nav-bar a').forEach(l => l.classList.remove('active'));
+    document.querySelectorAll('.nav-links a[data-page="home"], .nav-bar a[data-page="home"]').forEach(l => l.classList.add('active'));
     document.getElementById('page-home').classList.add('active');
 
     history.pushState(null, '', ' ');
@@ -270,19 +270,19 @@
 
   // ========== 导航 ==========
   function initNav() {
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const allNavLinks = document.querySelectorAll('.nav-links a, .nav-bar a');
     const pages = document.querySelectorAll('.page');
-    navLinks.forEach(link => {
+    allNavLinks.forEach(link => {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         const page = this.getAttribute('data-page');
-        navLinks.forEach(l => l.classList.remove('active'));
-        this.classList.add('active');
+        // 同步 active 到所有导航链接
+        allNavLinks.forEach(l => l.classList.remove('active'));
+        allNavLinks.forEach(l => { if (l.getAttribute('data-page') === page) l.classList.add('active'); });
         pages.forEach(p => {
           p.classList.remove('active');
           if (p.id === 'page-' + page) p.classList.add('active');
         });
-        // 清除 hash
         if (location.hash) history.pushState(null, '', ' ');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
