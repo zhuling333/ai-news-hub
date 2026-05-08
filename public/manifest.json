@@ -1,0 +1,17 @@
+{
+  "name": "AI 前线资讯",
+  "short_name": "AI 前线",
+  "description": "AI 领域精选资讯、技能教程与行业趋势",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050510",
+  "theme_color": "#050510",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

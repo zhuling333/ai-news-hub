@@ -3,51 +3,35 @@
     {
       "id": 1,
       "num": "01",
-      "tag": "AI应用",
-      "title": "苹果计划在iOS27中推出Siri相机模式并升级视觉人工智能功能",
-      "date": "2026-04-30 03:00",
-      "url": "https://k.sina.com.cn/article_7857201856_1d45362c001904vz10.html"
+      "tag": "大模型",
+      "title": "OpenAI 发布 GPT-5.5 Instant：幻觉率下降 52.5%，设为 ChatGPT 默认模型",
+      "date": "2026-05-06",
+      "url": "https://techcrunch.com/"
     },
     {
       "id": 2,
       "num": "02",
-      "tag": "AI监管",
-      "title": "国家网信办依法对剪映、猫箱、即梦AI等平台实施处罚",
-      "date": "2026-04-30 02:00",
-      "url": "https://k.sina.com.cn/article_7857201856_1d45362c001904vx6g.html"
+      "tag": "算力",
+      "title": "SpaceXAI 与 Anthropic 签署协议：太空算力时代开启",
+      "date": "2026-05-07",
+      "url": "https://www.reuters.com/"
     },
     {
       "id": 3,
       "num": "03",
-      "tag": "AI峰会",
-      "title": "2026人工智能基础设施峰会在沪召开，智算筑基生态共生",
-      "date": "2026-04-28 07:28",
-      "url": "https://gdss.doit.com.cn/"
+      "tag": "政策",
+      "title": "奥斯卡奖最新宣布：AI 演员和 AI 剧本不能参评",
+      "date": "2026-05-06",
+      "url": "https://news.sina.com.cn/"
     },
     {
       "id": 4,
       "num": "04",
-      "tag": "AI研究",
-      "title": "斯坦福大学发布《2026年人工智能指数报告》：12张图表解读AI发展现状和趋势",
-      "date": "2026-04-27 17:22",
-      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_13769ef2ac364452"
-    },
-    {
-      "id": 5,
-      "num": "05",
-      "tag": "AI应用",
-      "title": "新京报AI研究院联合Xsignal发布《2026春季AI应用竞争力报告》",
-      "date": "2026-04-27 15:13",
-      "url": "https://so.html5.qq.com/page/real/search_news?docid=70000021_58569ef0c8237852"
-    },
-    {
-      "id": 6,
-      "num": "06",
-      "tag": "AI产业",
-      "title": "SpaceX收购AI编程公司Cursor，交易金额达600亿美元",
-      "date": "2026-04-26 09:17",
-      "url": "https://www.nbd.com.cn/columns/1367/"
+      "tag": "行业",
+      "title": "中国 AI 大模型周调用量首次超越美国：7.94 万亿 Token 创纪录",
+      "date": "2026-05-03",
+      "url": "https://www.tmtpost.com/"
     }
   ],
-  "updatedAt": "2026-04-30T09:08:00+08:00"
+  "updatedAt": "2026-05-08T12:35:49+08:00"
 }

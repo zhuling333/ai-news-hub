@@ -8,12 +8,16 @@
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://ai-news-hub-omega.vercel.app/">
 <meta name="theme-color" content="#050510">
+<link rel="manifest" href="/public/manifest.json">
 <meta property="og:title" content="AI 前线资讯 — 精选 AI 资讯 | AI技能 | 行业动态">
 <meta property="og:description" content="第一时间获取 AI 领域最新资讯、技能教程与行业趋势。">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <title>AI 前线资讯 — 精选 AI 资讯 | AI技能 | 行业动态</title>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"AI 前线资讯","url":"https://ai-news-hub-omega.vercel.app/","description":"AI 领域精选资讯、技能教程与行业趋势"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@300;400;500;600;700&family=Azeret+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg-primary:#050510;--bg-secondary:#0a0a1a;--bg-card:#0d0d24;--bg-card-hover:#111133;--border:#1a1a3e;--border-bright:#2a2a5e;--cyan:#00e5ff;--cyan-dim:#00a8c7;--cyan-glow:rgba(0,229,255,.15);--purple:#b347ea;--purple-dim:#8a35c7;--purple-glow:rgba(179,71,234,.15);--amber:#ffab40;--amber-dim:#cc8a33;--red-hot:#ff3d71;--text-primary:#e8e8f0;--text-secondary:#8888aa;--text-dim:#555577;--font-display:'Michroma',sans-serif;--font-body:'DM Sans',sans-serif;--font-mono:'Azeret Mono',monospace;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--transition:all .3s cubic-bezier(.4,0,.2,1);--header-h:64px;--nav-h:56px}
@@ -95,7 +99,8 @@ html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--he
 .card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:var(--transition);cursor:pointer;position:relative;-webkit-tap-highlight-color:transparent;touch-action:manipulation;min-height:120px}
 .card:active{transform:scale(.98)}
 .card-featured{grid-column:span 8}
-.card-image{position:relative;height:180px;background:linear-gradient(135deg,var(--bg-secondary),#1a1a3e);background-size:cover;background-position:center}
+.card-image{position:relative;height:180px;background:linear-gradient(135deg,var(--bg-secondary),#1a1a3e);overflow:hidden}
+.card-image-img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
 .card-featured .card-image{max-height:300px;height:auto;aspect-ratio:16/9}
 .card-image .card-tag{position:absolute;top:12px;left:12px;font-family:var(--font-mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:4px 8px;border-radius:20px;border:1px solid;backdrop-filter:blur(10px);background:rgba(0,0,0,.5)}
 .card-tag.cyan{color:var(--cyan);border-color:var(--cyan)}.card-tag.purple{color:var(--purple);border-color:var(--purple)}
@@ -245,7 +250,8 @@ html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--he
 
 /* DETAIL PAGE */
 #page-detail{display:none;padding-bottom:60px}#page-detail.active{display:block}
-.detail-cover{height:45vh;min-height:240px;max-height:400px;background-size:cover;background-position:center;position:relative}
+.detail-cover{height:45vh;min-height:240px;max-height:400px;position:relative;overflow:hidden}
+.detail-cover-img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
 .detail-cover-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,16,1) 0%,rgba(5,5,16,.3) 60%,transparent 100%);display:flex;align-items:flex-end;padding:24px}
 .detail-cover-overlay .card-tag{position:relative;top:0;left:0;background:rgba(0,0,0,.6)}
 .detail-cover-overlay .card-tag-hot{position:relative;top:0;right:0}
@@ -262,7 +268,7 @@ html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--he
 .detail-related-card{cursor:pointer;border-radius:var(--radius-md);overflow:hidden;background:var(--bg-card);border:1px solid var(--border);transition:var(--transition);-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .detail-related-card:hover{border-color:var(--cyan);transform:translateY(-3px)}
 .detail-related-card:active{transform:scale(.97)}
-.detail-related-cover{height:120px;background-size:cover;background-position:center}
+.detail-related-cover{width:100%;height:120px;object-fit:cover;display:block}
 .detail-related-info{padding:10px}
 .detail-related-tag{font-family:var(--font-mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan)}
 .detail-related-info h4{font-size:13px;font-weight:600;margin-top:4px;line-height:1.4}
@@ -283,7 +289,7 @@ html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--he
 <div class="logo-icon"><svg viewBox="0 0 32 32" fill="none"><rect x="1" y="1" width="30" height="30" rx="6" stroke="#00e5ff" stroke-width="1.5"/><path d="M8 24V12l4 8 4-8v12" stroke="#b347ea" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="16" r="7" stroke="#00e5ff" stroke-width="1.5"/><path d="M24 13v3h3" stroke="#00e5ff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
 <div class="logo-text">AI<span>前线</span></div>
 </a>
-<nav class="nav-bar" aria-label="桌面导航"><a data-page="home" class="active">首页</a><a data-page="news">AI资讯</a><a data-page="skills">AI技能</a><a data-page="trends">行业动态</a></nav>
+<nav class="nav-bar" aria-label="桌面导航"><a data-page="home" class="active">首页</a><a data-page="news">AI资讯</a><a data-page="skills">AI技能</a><a data-page="trends">行业动态</a><a data-page="analytics">统计</a></nav>
 <div class="header-right">
 <button class="nav-trigger" id="navTrigger" aria-label="打开导航菜单" aria-expanded="false">
 <span></span><span></span><span></span>
@@ -297,6 +303,7 @@ html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--he
 <li><a data-page="news">AI资讯</a></li>
 <li><a data-page="skills">AI技能</a></li>
 <li><a data-page="trends">行业动态</a></li>
+<li><a data-page="analytics">统计</a></li>
 </ul>
 </nav>
 </header>
@@ -371,9 +378,41 @@ html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--he
 <div id="page-detail" class="page">
 <div id="detail-content"></div>
 </div>
+
+<div id="page-analytics" class="page">
+<div class="container">
+<div style="padding:48px 0 24px">
+<div class="hero-eyebrow">ANALYTICS / 统计</div>
+<h1 style="max-width:800px"><span class="gradient-text">访问统计</span>面板</h1>
+<p class="hero-sub">全球实时计数 + 本地浏览数据</p>
+</div>
+<div class="stats-grid-analytics" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:48px">
+<div class="trend-card" style="padding:24px"><div style="font-size:12px;color:var(--text-secondary);letter-spacing:1px;margin-bottom:8px">总访问量</div><div class="stat-number" id="analytics-total" style="font-size:36px">—</div><div style="font-size:12px;color:#00ff88;margin-top:8px">实时统计</div></div>
+<div class="trend-card" style="padding:24px"><div style="font-size:12px;color:var(--text-secondary);letter-spacing:1px;margin-bottom:8px">今日访问</div><div class="stat-number" id="analytics-today" style="font-size:36px;color:var(--purple)">0</div><div style="font-size:12px;color:#00ff88;margin-top:8px">本设备</div></div>
+<div class="trend-card" style="padding:24px"><div style="font-size:12px;color:var(--text-secondary);letter-spacing:1px;margin-bottom:8px">页面浏览</div><div class="stat-number" id="analytics-pv" style="font-size:36px;color:var(--amber)">0</div><div style="font-size:12px;color:#00ff88;margin-top:8px">本设备</div></div>
+<div class="trend-card" style="padding:24px"><div style="font-size:12px;color:var(--text-secondary);letter-spacing:1px;margin-bottom:8px">活跃访客</div><div class="stat-number" id="analytics-active" style="font-size:36px;color:var(--red-hot)">—</div><div style="font-size:12px;color:#00ff88;margin-top:8px">当前在线</div></div>
+</div>
+<div class="section-header"><h2 class="section-title"><span class="dot cyan"></span>周趋势</h2><span class="section-meta">📊 WEEKLY</span></div>
+<div class="chart-placeholder" id="analytics-weekly" style="height:200px;padding:24px 16px 20px;margin-bottom:48px"></div>
+<div class="section-header"><h2 class="section-title"><span class="dot purple"></span>热门页面</h2><span class="section-meta">🔥 TOP PAGES</span></div>
+<div class="trend-card" style="padding:24px;margin-bottom:48px">
+<table style="width:100%;border-collapse:collapse">
+<thead><tr><th style="text-align:left;padding:12px 16px;font-size:12px;color:var(--text-dim);border-bottom:1px solid var(--border);width:60px">#</th><th style="text-align:left;padding:12px 16px;font-size:12px;color:var(--text-dim);border-bottom:1px solid var(--border)">页面</th><th style="text-align:left;padding:12px 16px;font-size:12px;color:var(--text-dim);border-bottom:1px solid var(--border);width:120px">浏览量</th></tr></thead>
+<tbody id="analytics-pages-tbody"></tbody>
+</table>
+</div>
+</div>
+</div>
 </main>
 <footer class="site-footer"><div class="container"><p class="footer-text">&copy; 2026 AI 前线资讯 · 每日自动更新 · Data-driven by JSON</p></div></footer>
 <script src="js/app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
 <script>
 // Mobile nav toggle
 (function(){
@@ -408,5 +447,677 @@ html.drawer-is-open body main,body.drawer-is-open main{padding-top:calc(var(--he
   });
 })();
 </script>
+<!--INLINE_DATA_START-->
+<script type="application/json" id="data-featured">{"featured":[{"id":1,"tag":"大模型","tagColor":"amber","hot":true,"date":"2026-04-28","author":"林思源","title":"GPT-5 正式发布：多模态能力再突破，推理速度提升 300%","excerpt":"OpenAI 正式发布 GPT-5，新版模型在视觉理解、代码生成、数学推理等维度均实现显著提升，上下文窗口扩展至 200 万 tokens，首次实现实时多模态交互，API 定价下降 60%。","content":"OpenAI 于 2026 年 4 月 28 日正式发布 GPT-5，标志着大语言模型进入全新纪元。新模型在多项核心能力上实现质的飞跃：
+
+**视觉理解**：GPT-5 的视觉理解能力相比 GPT-4o 提升超过 400%，能够准确识别复杂图表、手写笔记、医学影像等专业内容。新增的「实时视觉交互」功能让用户可以通过视频流与模型进行连续对话。
+
+**代码生成**：在 SWE-Bench 基准测试中，GPT-5 的代码修复率从 GPT-4 的 33.2% 飙升至 78.6%，在 HumanEval 上达到 98.1% 的通过率。
+
+**数学推理**：在 MATH-500 和 FrontierMath 等数学推理基准上，GPT-5 的准确率均超过 95%，接近数学竞赛金牌水平。
+
+**上下文窗口**：从 128K 扩展至 200 万 tokens，可以一次性处理超大型代码库、完整书籍或多篇学术论文。
+
+**API 定价**：输入价格降低至 $1.5/百万 tokens，输出价格降低至 $6/百万 tokens，相比 GPT-4 下降约 60%。
+
+行业分析人士认为，GPT-5 的发布将进一步加速 AI 在医疗、法律、金融等专业领域的落地应用。多家企业已宣布将 GPT-5 集成到其产品线中。","source":"OPENAI","readTime":"12 分钟阅读","size":"large","cover":"https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop","url":"article/1"},{"id":2,"tag":"AI 工具","tagColor":"cyan","date":"2026-04-27","author":"王思涵","title":"Claude 4 发布：1000 万 token 上下文创世界纪录","excerpt":"Anthropic 发布 Claude 4 系列，在 1000 万 token 上下文测试中准确率达 98.7%，视觉理解能力提升 300%，支持视频帧分析。","content":"Anthropic 于 2026 年 4 月 27 日发布 Claude 4 系列模型，包括 Claude 4 Opus、Sonnet 和 Haiku 三个版本。
+
+**上下文窗口**：Claude 4 Opus 首次实现 1000 万 token 超长上下文，在 RULER 基准测试中准确率达 98.7%，远超此前所有模型。这意味着用户可以一次性上传数百份文档进行分析。
+
+**视觉理解**：Claude 4 的视觉理解能力相比 Claude 3.5 提升约 300%，新增视频帧逐帧分析功能，支持从视频中提取关键信息和时间线。
+
+**安全对齐**：Claude 4 在安全对齐方面采用全新的 Constitutional AI v3 方法，在减少有害输出的同时保持了 95% 以上的有用性。
+
+**定价策略**：Claude 4 Opus 定价为输入 $15/百万 tokens，Sonnet 为 $3，Haiku 为 $0.25，提供灵活的性价比选择。
+
+Anthropic CEO Dario Amodei 表示，Claude 4 是朝着「AI 安全助手」愿景迈出的重要一步。","source":"ANTHROPIC","readTime":"8 分钟阅读","size":"medium","cover":"https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=500&fit=crop","url":"article/2"},{"id":3,"tag":"开源模型","tagColor":"purple","date":"2026-04-26","author":"赵文博","title":"DeepSeek-R2 发布：国产开源模型逼近 GPT-4 性能","excerpt":"幻方深度求索团队发布 DeepSeek-R2，在 MMLU、HumanEval 等基准测试中逼近 GPT-4 水准，训练成本仅为同类 1/5，全面开源可商用。","content":"幻方深度求索团队于 2026 年 4 月 26 日正式发布 DeepSeek-R2，这是一款全面开源且可商用的国产大语言模型。
+
+**性能表现**：DeepSeek-R2 总参数量为 236B（MoE 架构，激活参数 21B），在 MMLU 上达到 88.3%，HumanEval 达到 92.7%，GSM8K 达到 96.1%，逼近 GPT-4 Turbo 水准。
+
+**训练成本**：整个训练过程仅使用 2048 块 H800 GPU，训练时长 45 天，总成本约 550 万美元，仅为同级别闭源模型的 1/5。
+
+**创新架构**：采用 Multi-head Latent Attention (MLA) 和 DeepSeekMoE v3 架构，在推理效率和模型容量之间取得优异平衡。
+
+**开源生态**：模型权重、训练数据说明、推理代码和微调脚本全部在 GitHub 和 Hugging Face 开源，社区已出现多个衍生微调版本。
+
+**行业影响**：DeepSeek-R2 的发布进一步证明了开源模型可以达到闭源模型的高水准，为国内 AI 产业提供了强有力的基础模型选择。","source":"DEEPSEEK","readTime":"6 分钟阅读","size":"medium","cover":"https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=500&fit=crop","url":"article/3"},{"id":4,"tag":"行业","tagColor":"red","date":"2026-04-27","author":"市场研究部","title":"英伟达 H200 产能爬坡：AI 算力芯片短缺缓解","excerpt":"全球 AI 算力芯片供需紧张局面将在 Q3 得到显著改善，季度交付量突破 50 万片。","content":"根据多家券商最新研报，英伟达 H200 GPU 产能已进入快速爬坡阶段。
+
+**产能数据**：2026 年 Q2 英伟达 H200 季度交付量突破 50 万片，相比 Q1 增长 120%。预计 Q3 将达到 70 万片以上，供需比从 0.3 提升至 0.7。
+
+**价格趋势**：H200 二手市场价格从年初的 $35,000 下降至 $22,000，降幅约 37%。云厂商自建 GPU 集群的成本压力明显缓解。
+
+**市场竞争**：AMD MI350X 的上市为市场提供了新的选择，但英伟达 CUDA 生态的深厚积累使其继续保持市场主导地位。
+
+**对行业的影响**：算力成本的下降将直接推动 AI 应用的普及，尤其是中小企业和个人开发者将更容易获取训练和推理资源。","source":"NVIDIA","readTime":"5 分钟","size":"small","cover":"https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=500&fit=crop","url":"article/4"},{"id":5,"tag":"技能","tagColor":"cyan","date":"2026-04-25","author":"教程组","title":"一文读懂 MCP 协议：让 AI Agent 连接一切工具","excerpt":"Model Context Protocol 正成为 AI Agent 工具调用的事实标准，本文详解架构设计与落地实践。","content":"Model Context Protocol (MCP) 是 Anthropic 于 2024 年底推出的开放协议，旨在标准化 AI 模型与外部工具/数据源的交互方式。经过一年多的发展，MCP 已成为 AI Agent 领域的事实标准。
+
+**核心架构**：MCP 采用 Client-Server 架构，Host 应用（如 Claude Desktop、VS Code）通过 MCP Client 连接 MCP Server，Server 封装了对特定工具或数据源的访问能力。
+
+**通信机制**：支持 stdio 和 SSE (Server-Sent Events) 两种传输方式，前者适用于本地工具，后者适用于远程服务。
+
+**工具生态**：目前已有超过 5000 个开源 MCP Server，覆盖文件系统、数据库、API 集成、浏览器控制等场景。
+
+**实战案例**：本文通过构建一个完整的 GitHub 项目管理 MCP Server，演示了从设计到部署的全流程。
+
+**未来展望**：MCP 2.0 规范正在制定中，将引入流式工具调用、双向通信等新特性。","source":"教程","readTime":"10 分钟","size":"small","cover":"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop","url":"article/5"}],"stats":[{"number":"2,847","label":"精选文章"},{"number":"156","label":"技能教程"},{"number":"89","label":"行业报告"},{"number":"24h","label":"更新频率"}]}</script>
+<script type="application/json" id="data-latest">{
+  "latest": [
+    {
+      "id": 1,
+      "num": "01",
+      "tag": "大模型",
+      "title": "OpenAI 发布 GPT-5.5 Instant：幻觉率下降 52.5%，设为 ChatGPT 默认模型",
+      "date": "2026-05-06",
+      "url": "https://techcrunch.com/"
+    },
+    {
+      "id": 2,
+      "num": "02",
+      "tag": "算力",
+      "title": "SpaceXAI 与 Anthropic 签署协议：太空算力时代开启",
+      "date": "2026-05-07",
+      "url": "https://www.reuters.com/"
+    },
+    {
+      "id": 3,
+      "num": "03",
+      "tag": "政策",
+      "title": "奥斯卡奖最新宣布：AI 演员和 AI 剧本不能参评",
+      "date": "2026-05-06",
+      "url": "https://news.sina.com.cn/"
+    },
+    {
+      "id": 4,
+      "num": "04",
+      "tag": "行业",
+      "title": "中国 AI 大模型周调用量首次超越美国：7.94 万亿 Token 创纪录",
+      "date": "2026-05-03",
+      "url": "https://www.tmtpost.com/"
+    }
+  ],
+  "updatedAt": "2026-05-08T12:35:49+08:00"
+}</script>
+<script type="application/json" id="data-news">{
+  "news": [
+    {
+      "id": 19,
+      "date": "2026-05-06",
+      "category": "大模型",
+      "title": "OpenAI 发布 GPT-5.5 Instant：幻觉率下降 52.5%，设为 ChatGPT 默认模型",
+      "summary": "OpenAI 于 5 月 6 日发布 GPT-5.5 Instant 并设为 ChatGPT 默认模型。在医疗、法律、金融等专业领域的幻觉率下降约 52.5%，推理速度较 GPT-5 提升 40%，成为 OpenAI 迄今最实用的日常模型。",
+      "tags": [
+        "OpenAI",
+        "GPT-5.5",
+        "大模型",
+        "幻觉率"
+      ],
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/",
+      "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600"
+    },
+    {
+      "id": 20,
+      "date": "2026-05-07",
+      "category": "算力",
+      "title": "SpaceXAI 与 Anthropic 签署协议：太空算力时代开启",
+      "summary": "xAI 与 Anthropic 签署计算合作伙伴协议，未来 1 个月内将带来超 300 兆瓦新增算力（约 22 万块 NVIDIA GPU）。双方还规划了数吉瓦级轨道 AI 算力愿景，将 AI 计算送入太空。Anthropic 年化收入已超 440 亿美元。",
+      "tags": [
+        "SpaceXAI",
+        "Anthropic",
+        "算力",
+        "太空",
+        "xAI"
+      ],
+      "source": "路透社",
+      "url": "https://www.reuters.com/",
+      "cover": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=600"
+    },
+    {
+      "id": 21,
+      "date": "2026-05-06",
+      "category": "政策",
+      "title": "奥斯卡奖最新宣布：AI 演员和 AI 剧本不能参评",
+      "summary": "奥斯卡奖主办方美国电影艺术与科学学院最新宣布，AI 生成的演员表演和 AI 撰写的剧本不得参与奥斯卡奖项评选，只有真实人类演员和人类撰写的剧本有资格。这是好莱坞应对生成式 AI 冲击的标志性规则变革。",
+      "tags": [
+        "奥斯卡",
+        "AI伦理",
+        "好莱坞",
+        "政策",
+        "娱乐产业"
+      ],
+      "source": "新浪科技",
+      "url": "https://news.sina.com.cn/",
+      "cover": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600"
+    },
+    {
+      "id": 22,
+      "date": "2026-05-03",
+      "category": "行业",
+      "title": "中国 AI 大模型周调用量首次超越美国：7.94 万亿 Token 创纪录",
+      "summary": "2026 年 4 月 27 日至 5 月 3 日，中国 AI 大模型周调用量达 7.942 万亿 Token，历史上首次超越美国。豆包以 3.45 亿月活领跑，千问 1.66 亿、DeepSeek 1.27 亿紧随其后。中国 AI 原生 APP 月活用户总数达 4.4 亿。",
+      "tags": [
+        "中国AI",
+        "大模型",
+        "豆包",
+        "DeepSeek",
+        "月活"
+      ],
+      "source": "钛媒体",
+      "url": "https://www.tmtpost.com/",
+      "cover": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600"
+    },
+    {
+      "id": 15,
+      "date": "2026-05-01",
+      "category": "AI产品",
+      "title": "腾讯ima推出知识Agent「copilot」，AI知识管理赛道新突破",
+      "summary": "腾讯旗下知识库产品ima正式推出copilot功能，定位“知识Agent”，支持智能问答、自动摘要、知识关联图谱，标志着AI知识管理从“搜索”向“辅助决策”进化。",
+      "tags": [
+        "腾讯",
+        "IMA",
+        "知识管理",
+        "AI Agent"
+      ],
+      "source": "36氪",
+      "url": "https://36kr.com/",
+      "cover": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600"
+    },
+    {
+      "id": 16,
+      "date": "2026-05-01",
+      "category": "AI产业",
+      "title": "Anthropic估值冲击9000亿美元，即将反超OpenAI",
+      "summary": "AI独角兽估值竞赛白热化。据媒体报道，Anthropic最新融资估值逼近9000亿美元，投资人甚至用豪宅换股份。若达成，将超越OpenAI成为全球估值最高AI公司。",
+      "tags": [
+        "Anthropic",
+        "OpenAI",
+        "AI估值",
+        "独角兽"
+      ],
+      "source": "前沿科技学习分享圈",
+      "url": "https://www.163.com/",
+      "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600"
+    },
+    {
+      "id": 17,
+      "date": "2026-05-02",
+      "category": "AI模型",
+      "title": "DeepSeek多模态模型技术报告正式公布，性能领跑开源",
+      "summary": "DeepSeek发布最新多模态模型技术报告，详细披露视觉-语言对齐训练策略。在多项基准测试中超越同级别开源模型，持续巩固其在开源大模型领域的领先地位。",
+      "tags": [
+        "DeepSeek",
+        "多模态",
+        "开源",
+        "V4"
+      ],
+      "source": "CSDN",
+      "url": "https://www.csdn.net/",
+      "cover": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600"
+    },
+    {
+      "id": 18,
+      "date": "2026-05-02",
+      "category": "AI产业",
+      "title": "科技巨头AI军备竞赛：四大巨头资本开支升至7250亿美元",
+      "summary": "最新财报显示，微软、亚马逊、Meta、谷歌2026年AI基础设施合计资本开支预计达7250亿美元。Alphabet单日市值暴增4210亿美元，AI投入回报开始兑现。",
+      "tags": [
+        "微软",
+        "亚马逊",
+        "Meta",
+        "谷歌",
+        "资本开支"
+      ],
+      "source": "新浪财经",
+      "url": "https://finance.sina.com.cn/",
+      "cover": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600"
+    },
+    {
+      "id": 13,
+      "date": "2026-04-30",
+      "displayDate": "2026年4月30日",
+      "category": "行业动态",
+      "categoryColor": "blue",
+      "title": "苹果 iOS 27 将推 Siri 相机模式：视觉 AI 整合进相机应用",
+      "excerpt": "苹果计划在 iOS 27 中将 Siri 和视觉智能功能直接整合进 iPhone 相机应用，新增专属「Siri 模式」，预计在 WWDC 26 发布，秋季推送。",
+      "content": "苹果计划在即将推出的 iOS 27 操作系统中，将人工智能更深度地整合进 iPhone 相机应用。
+
+**核心变化**：把原本依附于相机控制按钮的「视觉智能」（Visual Intelligence）功能，直接整合进相机应用本身，作为一个独立的「Siri 模式」，与「照片」「视频」「人像」等现有选项并列显示。
+
+**功能亮点**：
+- 用户可将镜头对准物体，调用 ChatGPT 等服务进行视觉问答
+- 支持扫描食品包装营养成分表，自动记录膳食信息
+- 可直接将他人名片信息添加至通讯录
+- 通过 Google 反向图片搜索获取更多信息
+
+**交互改进**：切换至 Siri 模式时，快门按钮上将显示 Apple Intelligence 标志，提示用户已可使用 Siri 相关功能。
+
+**发布时间**：iOS 27 预计在 6 月 WWDC26 全球开发者大会上正式发布，秋季向用户推送。",
+      "tags": [
+        "苹果",
+        "iOS27",
+        "Siri",
+        "视觉AI",
+        "Apple Intelligence"
+      ],
+      "url": "article/13",
+      "cover": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=800&h=500&fit=crop",
+      "author": "AI前线观察"
+    },
+    {
+      "id": 14,
+      "date": "2026-04-30",
+      "displayDate": "2026年4月30日",
+      "category": "政策解读",
+      "categoryColor": "green",
+      "title": "教育部等五部门联合印发《「人工智能+教育」行动计划》，AI 纳入教师资格考试",
+      "excerpt": "教育部等五部门联合印发行动计划，将人工智能纳入教师资格考试和认证内容，AI+教育正式升级为国家战略级刚性任务。",
+      "content": "2026年4月，教育部、国家发展改革委、工信部、财政部、国家数据局五部门联合印发《「人工智能+教育」行动计划》（以下简称《行动计划》），标志着 AI+教育正式从信息化辅助工具升级为国家战略级刚性任务。
+
+**核心内容**：
+- **教师准入**：将人工智能纳入教师资格考试和认证内容，从源头把控教师 AI 素养
+- **智能备课**：利用 AI 赋能课前备课，实现人机共创备课，支撑多模态教学资源自动生成
+- **智能教学**：课中加强智能教学系统应用，课后推进智能批改、答疑和辅导
+- **素养培训**：制定教师智能素养标准，分层分类开展人工智能素养培训，实现全覆盖
+- **师范改革**：将人工智能等前沿技术知识纳入师范生课程体系
+
+**政策刚性**：2026年秋季开学，全国中小学须 100% 开齐 AI 通识课；学生 AI 素养纳入综合素质评价，与升学直接挂钩；在国家及省级教学成果奖中设立智能教育项目。",
+      "tags": [
+        "AI教育",
+        "教师资格",
+        "政策",
+        "五部门",
+        "行动计划"
+      ],
+      "url": "article/14",
+      "cover": "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&h=500&fit=crop",
+      "author": "政策研究院"
+    },
+    {
+      "id": 11,
+      "date": "2026-04-29",
+      "displayDate": "2026年4月29日",
+      "category": "大模型",
+      "categoryColor": "purple",
+      "title": "百度发布文心大模型4.5 Turbo，上下文窗口提升至200万Tokens",
+      "excerpt": "百度在Create 2025开发者大会上正式发布文心大模型4.5 Turbo，上下文窗口提升至200万Tokens，API价格仅为GPT-4.5的1%。",
+      "content": "百度在Create 2025开发者大会上正式发布文心大模型4.5 Turbo。
+
+**核心升级**：上下文窗口从128K提升至200万Tokens，可处理约150万字长文本。
+
+**价格优势**：API价格仅为GPT-4.5的1%，大幅降低开发者使用门槛。
+
+**多模态能力**：支持文本、图像、视频的统一理解，在多项基准测试中超越GPT-4o。
+
+**生态布局**：百度表示已有超过50万开发者基于文心模型构建应用。",
+      "tags": [
+        "百度",
+        "文心大模型",
+        "大模型",
+        "GPT-4.5"
+      ],
+      "url": "article/11",
+      "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
+      "author": "国内AI观察",
+      "readTime": "6分钟阅读"
+    },
+    {
+      "id": 12,
+      "date": "2026-04-29",
+      "displayDate": "2026年4月29日",
+      "category": "AI应用",
+      "categoryColor": "cyan",
+      "title": "英伟达发布新一代GPU架构Blackwell Ultra，B200X GPU售价接近500万美元",
+      "excerpt": "英伟达GTC大会上发布Blackwell Ultra架构和新一代B200X GPU，单卡售价接近500万美元，主要面向AI推理和科学计算场景。",
+      "content": "英伟达在GTC大会上正式发布Blackwell Ultra架构。
+
+**B200X GPU**：单卡售价接近500万美元，面向AI推理和科学计算。
+
+**性能提升**：相比上一代H100，推理性能提升2.5倍，功耗效率提升3倍。
+
+**H200 NVL72系统**：基于Blackwell Ultra的新一代系统，72卡配置，AI推理吞吐量提升30倍。
+
+**供应情况**：预计2026年下半年开始出货，主要客户包括微软、谷歌、亚马逊等云厂商。",
+      "tags": [
+        "英伟达",
+        "GPU",
+        "Blackwell",
+        "B200X"
+      ],
+      "url": "article/12",
+      "cover": "https://images.unsplash.com/photo-1591238372338-d2788e2d4c9a?w=800&h=500&fit=crop",
+      "author": "硬件科技组",
+      "readTime": "7分钟阅读"
+    },
+    {
+      "id": 9,
+      "date": "2026-04-28",
+      "displayDate": "2026年4月28日",
+      "category": "大模型",
+      "categoryColor": "purple",
+      "title": "陈天桥携MiroMind大模型团队回归商业一线，All in AI",
+      "excerpt": "前中国首富陈天桥携大模型团队MiroMind悄然回归商业一线。在钛媒体独家对话中，他系统性披露了All in AI的商业逻辑与深度思考。",
+      "content": "前中国首富陈天桥携大模型团队MiroMind悄然回归商业一线。
+
+**MiroMind团队**：陈天桥的大模型团队已经悄然组建完成，专注于通用人工智能研究。
+
+**商业逻辑**：在钛媒体赵何娟的独家对话中，陈天桥系统性披露了他All in AI的商业逻辑与深度思考。
+
+**金句频出**：\"我有耐心、错了能改、我有钱\"——展现了他对AI投资的坚定决心。
+
+**警惕\"断智慧\"危机**：他认为未来最可怕的是\"断智慧\"危机，人类需要保持对AI的掌控。",
+      "tags": [
+        "陈天桥",
+        "MiroMind",
+        "大模型",
+        "AI投资"
+      ],
+      "url": "article/9",
+      "cover": "https://images.unsplash.com/photo-1573497012236-8e5088aec8d?w=800&h=500&fit=crop",
+      "author": "商业观察组",
+      "readTime": "7分钟阅读"
+    },
+    {
+      "id": 10,
+      "date": "2026-04-27",
+      "displayDate": "2026年4月27日",
+      "category": "AGI",
+      "categoryColor": "red",
+      "title": "阿尔特曼：开发AGI烧掉500亿美元也在所不惜，GPT-4是OpenAI最愚蠢的模型",
+      "excerpt": "OpenAI CEO阿尔特曼在斯坦福大学创业思想领袖大会(ETL)上表示，为了开发通用人工智能(AGI)，任何代价都是值得的。他同时称GPT-4是OpenAI最愚蠢的模型。",
+      "content": "OpenAI CEO阿尔特曼在斯坦福大学举行的创业思想领袖大会(ETL)上，与主持人、斯坦福大学讲师拉维·贝拉尼进行了长时间问答。
+
+**AGI成本**：阿尔特曼表示，为了开发通用人工智能(AGI)，烧掉500亿美元也在所不惜，任何代价都是值得的。
+
+**GPT-4评价**：他直言GPT-4是OpenAI最愚蠢的模型，暗示未来模型将有质的飞跃。
+
+**未来展望**：谈话涉及生成式人工智能、聊天机器人的未来、GPT-3的成本、AGI等多个话题。
+
+**算力需求**：透露了OpenAI对算力的巨大需求，以及未来算力基础设施的规划。",
+      "tags": [
+        "阿尔特曼",
+        "OpenAI",
+        "AGI",
+        "GPT-4"
+      ],
+      "url": "article/10",
+      "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
+      "author": "国际AI观察",
+      "readTime": "8分钟阅读"
+    },
+    {
+      "id": 1,
+      "date": "2026-04-28",
+      "displayDate": "2026年4月28日",
+      "category": "大模型",
+      "categoryColor": "cyan",
+      "title": "OpenAI 发布 GPT-5：多模态能力全面跃升，200 万 token 上下文",
+      "excerpt": "OpenAI 正式发布 GPT-5，新模型在视觉理解、代码生成、数学推理方面实现质的飞跃。上下文窗口扩展至 200 万 tokens，首次支持实时多模态交互，API 定价相比 GPT-4 下降 60%。",
+      "content": "OpenAI 于 2026 年 4 月 28 日正式发布 GPT-5，标志着大语言模型进入全新纪元。
+
+**视觉理解**：相比 GPT-4o 提升超过 400%，能准确识别复杂图表、手写笔记、医学影像。新增实时视觉交互功能。
+
+**代码生成**：SWE-Bench 代码修复率从 33.2% 飙升至 78.6%，HumanEval 达 98.1%。
+
+**数学推理**：MATH-500 和 FrontierMath 准确率均超过 95%。
+
+**上下文**：从 128K 扩展至 200 万 tokens。
+
+**定价**：输入 $1.5/百万 tokens，输出 $6/百万 tokens，下降约 60%。",
+      "tags": [
+        "GPT-5",
+        "OpenAI",
+        "多模态",
+        "大模型"
+      ],
+      "url": "article/1",
+      "cover": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
+      "author": "林思源",
+      "readTime": "12 分钟阅读"
+    },
+    {
+      "id": 2,
+      "date": "2026-04-27",
+      "displayDate": "2026年4月27日",
+      "category": "开源",
+      "categoryColor": "purple",
+      "title": "Anthropic Claude 4 系列发布：1000 万 token 上下文测试创世界纪录",
+      "excerpt": "Anthropic 发布 Claude 4 系列，其中 Claude 4 Opus 在 1000 万 token 上下文测试中准确率达 98.7%，创下行业新纪录。视觉理解能力提升 300%，支持视频帧分析。",
+      "content": "Anthropic 发布 Claude 4 系列，包括 Opus、Sonnet、Haiku 三个版本。
+
+**上下文**：Claude 4 Opus 实现 1000 万 token 超长上下文，RULER 基准测试准确率 98.7%。
+
+**视觉**：相比 Claude 3.5 提升约 300%，新增视频帧逐帧分析。
+
+**安全**：采用 Constitutional AI v3，减少有害输出同时保持 95%+ 有用性。
+
+**定价**：Opus $15/百万 tokens，Sonnet $3，Haiku $0.25。",
+      "tags": [
+        "Claude 4",
+        "Anthropic",
+        "上下文窗口",
+        "视觉理解"
+      ],
+      "url": "article/2",
+      "cover": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=500&fit=crop",
+      "author": "王思涵",
+      "readTime": "8 分钟阅读"
+    },
+    {
+      "id": 3,
+      "date": "2026-04-26",
+      "displayDate": "2026年4月26日",
+      "category": "开源模型",
+      "categoryColor": "cyan",
+      "title": "DeepSeek-R2 发布：国产开源模型多 Benchmark 逼近 GPT-4",
+      "excerpt": "幻方深度求索团队发布 DeepSeek-R2，在 MMLU、HumanEval、GSM8K 等基准测试中逼近 GPT-4 水准，训练成本仅为同类模型的 1/5，全面开源可商用。",
+      "content": "DeepSeek-R2 正式发布，参数量 236B（MoE 架构，激活 21B）。
+
+**性能**：MMLU 88.3%，HumanEval 92.7%，GSM8K 96.1%。
+
+**成本**：2048 块 H800，45 天训练，总成本约 550 万美元，仅为同级别 1/5。
+
+**架构**：Multi-head Latent Attention + DeepSeekMoE v3。
+
+**开源**：权重、训练说明、推理代码和微调脚本全部开源。",
+      "tags": [
+        "DeepSeek",
+        "开源",
+        "国产",
+        "可商用"
+      ],
+      "url": "article/3",
+      "cover": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&h=500&fit=crop",
+      "author": "赵文博",
+      "readTime": "6 分钟阅读"
+    },
+    {
+      "id": 4,
+      "date": "2026-04-25",
+      "displayDate": "2026年4月25日",
+      "category": "AI 工具",
+      "categoryColor": "amber",
+      "title": "Notion AI 3.0 发布：深度集成知识图谱，自动化工作流再升级",
+      "excerpt": "Notion 发布 AI 3.0 版本，全新引入知识图谱引擎，实现跨页面语义关联搜索。新增工作流自动化模块，支持自然语言创建复杂多步骤任务流程。",
+      "content": "Notion AI 3.0 重大更新。
+
+**知识图谱**：全新引擎实现跨页面语义关联搜索，自动构建知识网络。
+
+**自动化**：新增工作流自动化模块，支持自然语言创建多步骤任务流程。
+
+**协作**：实时多人 AI 协作编辑，AI 可自动分配和跟踪任务。
+
+**集成**：新增与 Figma、Linear、Slack 的深度集成。",
+      "tags": [
+        "Notion",
+        "知识图谱",
+        "自动化"
+      ],
+      "url": "article/4",
+      "cover": "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=800&h=500&fit=crop",
+      "author": "工具评测组",
+      "readTime": "5 分钟阅读"
+    },
+    {
+      "id": 5,
+      "date": "2026-04-24",
+      "displayDate": "2026年4月24日",
+      "category": "政策",
+      "categoryColor": "red",
+      "title": "欧盟 AI 法案正式全面生效：全球首个系统性 AI 监管框架启动",
+      "excerpt": "欧盟 AI 法案（EU AI Act）全面生效，规定高风险 AI 系统必须满足透明度、可追溯性和人类监督要求。违规最高罚款为全球年营业额的 3%。",
+      "content": "EU AI Act 于 2026 年 4 月 24 日全面生效。
+
+**分类体系**：将 AI 系统分为不可接受风险、高风险、有限风险和最小风险四类。
+
+**高风险要求**：必须满足透明度、可追溯性和人类监督要求。
+
+**罚款**：违规最高罚款为全球年营业额的 3% 或 3500 万欧元。
+
+**影响**：全球首个系统性 AI 监管框架，预计将影响全球 AI 企业的合规策略。",
+      "tags": [
+        "AI 法案",
+        "欧盟",
+        "监管",
+        "合规"
+      ],
+      "url": "article/5",
+      "cover": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=500&fit=crop",
+      "author": "政策研究组",
+      "readTime": "7 分钟阅读"
+    },
+    {
+      "id": 6,
+      "date": "2026-04-23",
+      "displayDate": "2026年4月23日",
+      "category": "AI 安全",
+      "categoryColor": "cyan",
+      "title": "谷歌发布 Gemini 2.5 安全白皮书：详述 AI 对齐研究最新进展",
+      "excerpt": "谷歌 DeepMind 发布 Gemini 2.5 安全白皮书，公开了 AI 对齐研究的多项新技术，包括 Constitution-based RLHF 升级版和自适应红队测试框架。",
+      "content": "谷歌 DeepMind 发布 Gemini 2.5 安全白皮书。
+
+**对齐技术**：Constitution-based RLHF v2，在保持模型有用性的同时显著降低有害输出。
+
+**红队测试**：自适应红队测试框架，可动态调整攻击策略。
+
+**可解释性**：新增强化可解释性工具链，支持模型决策路径可视化。
+
+**开源**：部分对齐工具和测试框架已在 GitHub 开源。",
+      "tags": [
+        "AI 安全",
+        "对齐",
+        "Gemini"
+      ],
+      "url": "article/6",
+      "cover": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=500&fit=crop",
+      "author": "安全研究组",
+      "readTime": "9 分钟阅读"
+    },
+    {
+      "id": 7,
+      "date": "2026-04-22",
+      "displayDate": "2026年4月22日",
+      "category": "AI 应用",
+      "categoryColor": "purple",
+      "title": "Cursor 2.0 发布：AI 原生 IDE 集成多模型，支持实时协作",
+      "excerpt": "Cursor 发布 2.0 版本，新增多模型同时调用、实时协作编辑、AI 代码审查流水线等功能，大幅提升团队开发效率。",
+      "content": "Cursor 2.0 正式发布。
+
+**多模型**：支持同时调用 GPT-5、Claude 4、Gemini 2.5 等多个模型，自动选择最优结果。
+
+**协作**：新增实时协作编辑，AI 可自动同步代码变更。
+
+**代码审查**：AI 代码审查流水线，自动检测潜在问题并给出修复建议。
+
+**性能**：启动速度提升 60%，内存占用降低 40%。",
+      "tags": [
+        "Cursor",
+        "IDE",
+        "AI 编程"
+      ],
+      "url": "article/7",
+      "cover": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=500&fit=crop",
+      "author": "开发工具组",
+      "readTime": "6 分钟阅读"
+    },
+    {
+      "id": 8,
+      "date": "2026-04-21",
+      "displayDate": "2026年4月21日",
+      "category": "算力",
+      "categoryColor": "amber",
+      "title": "AMD MI350X 正式上市：挑战英伟达 H200，生态成为关键",
+      "excerpt": "AMD MI350X GPU 正式上市，内存带宽提升 50%，ROCm 生态持续完善。国内多家云厂商已宣布采购计划，挑战英伟达 H200 的市场主导地位。",
+      "content": "AMD MI350X GPU 正式上市。
+
+**性能**：内存带宽提升 50%，FP16 算力达 1.2 PFLOPS。
+
+**生态**：ROCm 6.0 对 PyTorch、JAX 的兼容性大幅提升。
+
+**价格**：相比 H200 低 30% 左右，性价比优势明显。
+
+**采购**：国内多家云厂商已宣布采购计划。",
+      "tags": [
+        "AMD",
+        "GPU",
+        "算力",
+        "MI350X"
+      ],
+      "url": "article/8",
+      "cover": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=500&fit=crop",
+      "author": "硬件研究组",
+      "readTime": "5 分钟阅读"
+    }
+  ],
+  "updated": "2026-05-08"
+}</script>
+<script type="application/json" id="data-skills">{
+  "skills": [
+    {
+      "id": 1, "icon": "🎯",
+      "title": "提示词工程（Prompt Engineering）",
+      "level": 3, "maxLevel": 5,
+      "desc": "掌握结构化提示词、Chain-of-Thought、Few-Shot 等核心技巧，让 AI 输出质量提升 300%。",
+      "count": 32, "difficulty": "中级"
+    },
+    {
+      "id": 2, "icon": "🔧",
+      "title": "AI Agent 开发",
+      "level": 4, "maxLevel": 5,
+      "desc": "从单 Agent 到多 Agent 协作，掌握 MCP 协议、工具调用规划、长程记忆等核心技能。",
+      "count": 28, "difficulty": "高级"
+    },
+    {
+      "id": 3, "icon": "📊",
+      "title": "AI + 数据分析",
+      "level": 2, "maxLevel": 5,
+      "desc": "用 AI 加速数据清洗、可视化、报告生成，打造智能数据分析工作流。",
+      "count": 19, "difficulty": "初级"
+    },
+    {
+      "id": 4, "icon": "✏️",
+      "title": "AI 写作与内容创作",
+      "level": 3, "maxLevel": 5,
+      "desc": "从文案创作到长文写作，构建 AI 辅助创作工作流，提升 5 倍内容产出效率。",
+      "count": 24, "difficulty": "中级"
+    },
+    {
+      "id": 5, "icon": "🎨",
+      "title": "AI 图像与设计",
+      "level": 2, "maxLevel": 5,
+      "desc": "掌握 Midjourney、Stable Diffusion、DALL-E 等工具，以及 AI 设计工作流整合。",
+      "count": 21, "difficulty": "初级"
+    },
+    {
+      "id": 6, "icon": "📝",
+      "title": "AI 编程与代码开发",
+      "level": 4, "maxLevel": 5,
+      "desc": "GitHub Copilot、Cursor、AI 代码审查、自动化测试——AI 原生开发全流程指南。",
+      "count": 32, "difficulty": "中级"
+    }
+  ],
+  "updatedAt": "2026-04-28T13:00:00+08:00"
+}
+</script>
+<script type="application/json" id="data-trends">{"trends":[{"id":1,"eyebrow":"市场总规模","title":"2026 年全球 AI 市场达 8260 亿美元","excerpt":"全球 AI 市场规模预计达 8260 亿美元，年增长率 38%。生成式 AI 是最大增长引擎，占比超 35%。","data":[{"label":"2024","value":"3,200B"},{"label":"2025","value":"5,600B"},{"label":"2026","value":"8,260B","change":"+38%","direction":"up"}]},{"id":2,"eyebrow":"投融资","title":"2026 Q1 AI 领域融资达 390 亿美元","excerpt":"Q1 全球 AI 领域融资总额达 390 亿美元，同比增长 62%。基础模型和 AI Agent 是最受青睐的投资方向。","data":[{"label":"基础模型","value":"142B","change":"+78%","direction":"up"},{"label":"AI Agent","value":"98B","change":"+112%","direction":"up"},{"label":"AI 应用","value":"150B","change":"+45%","direction":"up"}]},{"id":3,"eyebrow":"算力芯片","title":"英伟达 H200 产能爬坡，芯片短缺缓解","excerpt":"英伟达 H200 GPU 产能持续爬坡，季度交付量突破 50 万片。AMD MI350X 和英特尔 Gaudi 3 也在加速抢占市场份额。","data":[{"label":"英伟达份额","value":"82%","change":"-3%","direction":"down"},{"label":"AMD 份额","value":"11%","change":"+2%","direction":"up"},{"label":"其他","value":"7%"}]},{"id":4,"eyebrow":"企业采用","title":"78% 财富 500 强已部署 AI 应用","excerpt":"78% 的财富 500 强企业已部署至少一个 AI 应用，较 2025 年增长 22 个百分点。客服、数据分析和内容生成为三大核心场景。","data":[{"label":"已部署","value":"78%","change":"+22pp","direction":"up"},{"label":"测试中","value":"15%"},{"label":"规划中","value":"7%"}]}],"chart":{"title":"AI 资讯热度指数 (2025.10-2026.04)","bars":[{"label":"10月","height":45},{"label":"11月","height":52},{"label":"12月","height":48},{"label":"1月","height":61},{"label":"2月","height":70},{"label":"3月","height":78},{"label":"4月","height":95}]},"reports":[{"eyebrow":"年度报告","title":"《2026 年全球 AI 发展报告》正式发布","excerpt":"涵盖全球 AI 市场规模、技术进展、企业布局、政策动态与未来预测，全文 286 页，200+ 案例研究。","cta":"免费下载","url":"#"},{"eyebrow":"技术报告","title":"大模型能力评测报告 2026Q1","excerpt":"综合评测 GPT-5、Claude 4、Gemini 2.5、DeepSeek-R2 等主流模型在 50+ 基准测试上的表现。","cta":"查看详情","url":"#"}]}</script>
+<!--INLINE_DATA_END-->
 </body>
 </html>

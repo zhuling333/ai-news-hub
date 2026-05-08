@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ai-news-hub-omega.vercel.app/sitemap.xml
