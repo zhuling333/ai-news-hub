@@ -1,37 +1,53 @@
 {
   "latest": [
     {
-      "id": 1,
+      "id": "1",
       "num": "01",
-      "tag": "大模型",
-      "title": "OpenAI 发布 GPT-5.5 Instant：幻觉率下降 52.5%，设为 ChatGPT 默认模型",
-      "date": "2026-05-06",
-      "url": "https://techcrunch.com/"
-    },
-    {
-      "id": 2,
-      "num": "02",
       "tag": "算力",
-      "title": "SpaceXAI 与 Anthropic 签署协议：太空算力时代开启",
-      "date": "2026-05-07",
-      "url": "https://www.reuters.com/"
+      "title": "武汉人工智能计算中心启动建设：相当于50万台电脑算力之和",
+      "date": "2026-05-10",
+      "url": "http://www.jwview.com/jingwei/kb/pc/03-02/129415.shtml"
     },
     {
-      "id": 3,
+      "id": "2",
+      "num": "02",
+      "tag": "大模型",
+      "title": "百度发布文心大模型5.1：参数压缩至1/3，训练成本仅为同行6%",
+      "date": "2026-05-09",
+      "url": "https://www.sohu.com/"
+    },
+    {
+      "id": "3",
       "num": "03",
-      "tag": "政策",
-      "title": "奥斯卡奖最新宣布：AI 演员和 AI 剧本不能参评",
-      "date": "2026-05-06",
-      "url": "https://news.sina.com.cn/"
+      "tag": "融资",
+      "title": "阶跃星辰将完成近25亿美元融资，加速迈向港股大模型第三股",
+      "date": "2026-05-08",
+      "url": "https://www.ifnews.com/column.html?cid=43"
     },
     {
-      "id": 4,
+      "id": "4",
       "num": "04",
+      "tag": "融资",
+      "title": "DeepSeek拟募资最高500亿元，概念股名单曝光",
+      "date": "2026-05-06",
+      "url": "https://www.weibo.com/p/1005052218439762/home"
+    },
+    {
+      "id": "5",
+      "num": "05",
       "tag": "行业",
-      "title": "中国 AI 大模型周调用量首次超越美国：7.94 万亿 Token 创纪录",
-      "date": "2026-05-03",
-      "url": "https://www.tmtpost.com/"
+      "title": "科大讯飞AI产业化因果闭环成型：财报高增、中标领跑、生态放量",
+      "date": "2026-05-08",
+      "url": "https://www.163.com/dy/media/T1447654221604.html"
+    },
+    {
+      "id": "6",
+      "num": "06",
+      "tag": "投资",
+      "title": "深圳10亿基金撬动人工智能新未来：来深人才免费住宿延至15天",
+      "date": "2026-05-10",
+      "url": "https://www.gdtv.cn/tv/e71e9786119c0d4e4f4800a6e3c372ff"
     }
   ],
-  "updatedAt": "2026-05-08T12:35:49+08:00"
+  "updatedAt": "2026-05-12T09:45:00+08:00"
 }

@@ -1,6 +1,39 @@
 {
   "news": [
     {
+      "id": 23,
+      "date": "2026-05-09",
+      "category": "大模型",
+      "title": "百度发布文心大模型 5.1：参数压缩至 1/3，训练成本仅为同行 6%",
+      "summary": "百度发布文心大模型 5.1，总参数压缩至约 1/3，预训练成本仅为同规模模型的 6%。在 Arena Search 排行榜以 1223 分位居全球第 4、中国第 1，AIME26 得分 99.6，仅次于 Gemini 3.1 Pro。",
+      "tags": [
+        "百度",
+        "文心大模型",
+        "大模型",
+        "Arena Search"
+      ],
+      "source": "搜狐科技",
+      "url": "https://www.sohu.com/",
+      "cover": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600"
+    },
+    {
+      "id": 24,
+      "date": "2026-05-08",
+      "category": "机器人",
+      "title": "Figure 人形机器人月租 600 美元进家庭：产能 24 倍扩张，Agentic AI 时代到来",
+      "summary": "美国人形机器人公司 Figure 推出家庭租赁方案，Figure 03 月租约 600 美元。日产能已从每天 1 台提升至每小时 1 台，实现 24 倍产能扩张。英伟达 CEO 黄仁勋指出 AI 正从生成式向代理式（Agentic AI）飞跃。",
+      "tags": [
+        "Figure",
+        "人形机器人",
+        "黄仁勋",
+        "Agentic AI",
+        "英伟达"
+      ],
+      "source": "香港中通社",
+      "url": "http://hkcna.hk/",
+      "cover": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600"
+    },
+    {
       "id": 19,
       "date": "2026-05-06",
       "category": "大模型",
@@ -410,5 +443,5 @@
       "readTime": "5 分钟阅读"
     }
   ],
-  "updated": "2026-05-08"
+  "updated": "2026-05-09"
 }

@@ -21,7 +21,7 @@ def main():
         try:
             json.loads(raw)
         except json.JSONDecodeError as e:
-            print(f"  ⚠ {name}.json 不是合法 JSON，跳过: {e}")
+            print(f"  !! {name}.json is not valid JSON, skip: {e}")
             continue
         data_blocks.append((name, raw))
 
